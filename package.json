@@ -1,8 +1,8 @@
 {
   "name": "brickworks",
   "version": "0.1.0",
-  "description": "Lightweight, dynamic, zero-dependency grid layouts for React",
-  "author": "mattvox",
+  "description": "Lightweight, dynamic, extremely simple layouts for React",
+  "author": "Matthew Bliffert",
   "license": "MIT",
   "repository": "mattvox/brickworks",
   "main": "dist/index.js",
@@ -10,12 +10,32 @@
   "jsnext:main": "dist/index.es.js",
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:coverage": "cross-env CI=1 react-scripts test --env=jsdom --coverage",
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+  },
+  "homepage": "https://github.com/mattvox/brickworks",
+  "bugs": {
+    "url": "https://github.com/mattvox/brickworks/issues"
+  },
+  "keywords": [
+    "component",
+    "react-component",
+    "react",
+    "grid",
+    "layout",
+    "flex",
+    "flexbox",
+    "styled",
+    "styled-components"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -30,11 +50,16 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "coveralls": "^3.0.1",
     "cross-env": "^5.1.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
     "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-react": "^7.7.0",
