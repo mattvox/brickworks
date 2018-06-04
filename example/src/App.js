@@ -17,7 +17,7 @@ export default class App extends Component {
     console.log('rendered');
     return (
       <Grid>
-        <Row>
+        <Row columns={2}>
           <Col>
             <Segment>1/2</Segment>
           </Col>

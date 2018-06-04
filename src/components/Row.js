@@ -1,3 +1,4 @@
+import applyCssWithUnit from '../utils/applyCssWithUnit';
 import Grid from './Grid';
 
 export default Grid.extend`
@@ -7,6 +8,6 @@ export default Grid.extend`
   justify-content: ${({ justifyContent }) => justifyContent || 'inherit'};
   align-content: ${({ alignContent }) => alignContent || 'inherit'};
   align-items: ${({ alignItems }) => alignItems || 'inherit'};
-  padding: 0;
-  margin: 0;
+  padding: ${({ padding }) => (padding && applyCssWithUnit(padding)) || 0};
+  margin: ${({ margin }) => (margin && applyCssWithUnit(margin)) || 0};
 `;

@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import applyPaddingOrMargin from '../utils/applyPaddingOrMargin';
+import applyCssWithUnit from '../utils/applyCssWithUnit';
 import Col from './Col';
 
+// prettier-ignore
 const Grid = styled.div`
   display: flex;
   flex-wrap: ${({ wrap }) => wrap || 'wrap'};
@@ -11,18 +12,18 @@ const Grid = styled.div`
   justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
   align-content: ${({ alignContent }) => alignContent || 'stretch'};
   align-items: ${({ alignItems }) => alignItems || 'stretch'};
-  padding: ${({ padding }) => (padding && applyPaddingOrMargin(padding)) || 0};
-  margin: ${({ margin }) => (margin && applyPaddingOrMargin(margin)) || '1em'};
+  padding: ${({ padding }) => (padding && applyCssWithUnit(padding)) || 0};
+  margin: ${({ margin }) => (margin && applyCssWithUnit(margin)) || '1em'};
 
-  ${({ flow }) =>
-    flow &&
-    css`
-      flex-flow: flow;
-    `}
+  ${({ flow }) => flow && css`
+    flex-flow: flow;
+  `}
 
-  > ${Col} {
-    flex: ${({ columns }) => (columns ? `0 1 ${100 / columns}%` : '1 1 auto')};
-  }
+  ${({ columns }) => columns && css`
+    > ${Col} {
+      flex: 0 1 ${100 / columns}%;
+    }
+  `}
 `;
 
 Grid.propTypes = {
