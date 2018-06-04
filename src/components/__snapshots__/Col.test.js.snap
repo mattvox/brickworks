@@ -2,16 +2,17 @@
 
 exports[`<Col /> should match snapshot 1`] = `
 .c0 {
-  -webkit-order: default;
-  -ms-flex-order: default;
-  order: default;
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  padding: 1em;
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
   align-self: auto;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  padding: 1em;
+  margin: 0;
 }
 
 <div

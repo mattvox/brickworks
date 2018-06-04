@@ -27,12 +27,6 @@ exports[`<Grid /> should match snapshot 1`] = `
   margin: 1em;
 }
 
-.c0 > .sc-bdVaJa {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-}
-
 <div
   className="c0"
 />

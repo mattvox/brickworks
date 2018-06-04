@@ -49,12 +49,6 @@ exports[`<Row /> should match snapshot 1`] = `
   margin: 0;
 }
 
-.c0 > .sc-bdVaJa {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-}
-
 <div
   className="c0"
 />
