@@ -23,42 +23,25 @@ const Col = styled.div`
   ${({ basis }) => basis && css`
     flex-basis: ${applyCssWithUnit(basis, '%')};
   `};
-`;
 
-// flex - basis: ${
-//   ({ basis }) =>
-//   (basis && applyCssWithUnit(basis, '%')) || 'auto'
-// };
+  ${({ flex }) => flex && css`
+    flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
+  `};
+`;
 
 export default Col;
 
-// fix prop-type in flex and flex basis to take a percentage or change applyPadding function to applyUnits and take a second argument
-
-// use shorthand, make array prop and validate total object/array in prop types
-// maybe apply this to padding and margin as well, allow an array to be passed, or string, or number
 // maybe allow columns to also be flex containers by passing in the 'grid' prop, should have access to columns (and rows maybe) and all other grid props
 
-// const regex = /^(auto|0)$|^[+-]?[0-9]+.?([0-9]+)?(px|em|ex|%|in|cm|mm|pt|pc)$/i;
-
-// const cssWithUnitPropType = (props, prop, component) => {
-//   if (!isValid(props[prop])) {
-//     return new Error(`Invalid prop ${prop} on ${component}`);
-//   }
-
-//   return null;
-// };
-
 Col.propTypes = {
-  order: PropTypes.oneOf([PropTypes.number, 'initial', 'inherit']),
-  flex: PropTypes.arrayOf(
-    PropTypes.shape({
-      grow: PropTypes.oneOf([PropTypes.number, 'initial', 'inherit']),
-      shrink: PropTypes.oneOf([PropTypes.number, 'initial', 'inherit']),
-      basis: cssWithUnitPropType,
-    }),
-  ),
-  grow: PropTypes.oneOf([PropTypes.number, 'initial', 'inherit']),
-  shrink: PropTypes.oneOf([PropTypes.number, 'initial', 'inherit']),
+  order: PropTypes.number,
+  flex: PropTypes.shape({
+    grow: PropTypes.number,
+    shrink: PropTypes.number,
+    basis: cssWithUnitPropType,
+  }),
+  grow: PropTypes.number,
+  shrink: PropTypes.number,
   basis: cssWithUnitPropType,
   align: PropTypes.oneOf([
     'auto',

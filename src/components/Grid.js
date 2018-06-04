@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import applyCssWithUnit from '../utils/applyCssWithUnit';
+import cssWithUnitPropType from '../utils/validators/cssWithUnitPropType';
+
 import Col from './Col';
 
 // prettier-ignore
@@ -28,12 +30,20 @@ const Grid = styled.div`
 
 Grid.propTypes = {
   columns: PropTypes.number,
-  wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
+  wrap: PropTypes.oneOf([
+    'nowrap',
+    'wrap',
+    'wrap-reverse',
+    'initial',
+    'inherit',
+  ]),
   direction: PropTypes.oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
+    'initial',
+    'inherit',
   ]),
   flow: PropTypes.oneOf([
     'row nowrap',
@@ -48,6 +58,8 @@ Grid.propTypes = {
     'column-reverse nowrap',
     'column-reverse wrap',
     'column-reverse wrap-reverse',
+    'initial',
+    'inherit',
   ]),
   justifyContent: PropTypes.oneOf([
     'flex-start',
@@ -55,6 +67,8 @@ Grid.propTypes = {
     'center',
     'space-between',
     'space-around',
+    'initial',
+    'inherit',
   ]),
   alignContent: PropTypes.oneOf([
     'flex-start',
@@ -63,6 +77,8 @@ Grid.propTypes = {
     'space-between',
     'space-around',
     'stretch',
+    'initial',
+    'inherit',
   ]),
   alignItems: PropTypes.oneOf([
     'flex-start',
@@ -70,9 +86,11 @@ Grid.propTypes = {
     'center',
     'baseline',
     'stretch',
+    'initial',
+    'inherit',
   ]),
-  padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  margin: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  padding: cssWithUnitPropType,
+  margin: cssWithUnitPropType,
 };
 
 export default Grid;

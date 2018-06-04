@@ -3,7 +3,7 @@ export default function(value, unit = 'px') {
     case 'number':
       return `${value}${unit}`;
     case 'string':
-      return value.replace(/\s+/g, '');
+      return value;
     default:
       return false;
   }

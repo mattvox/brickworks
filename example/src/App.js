@@ -16,58 +16,65 @@ export default class App extends Component {
   render() {
     console.log('rendered');
     return (
-      <Grid>
-        <Row columns={2}>
-          <Col>
-            <Segment>1/2</Segment>
+      <div>
+        <Grid>
+          <Row>
+            <Col flex={{ grow: 0, shrink: 1, basis: 50 }}>
+              <Segment>1/2</Segment>
+            </Col>
+            <Col flex={{ grow: 0, shrink: 1, basis: 50 }}>
+              <Segment>1/2*</Segment>
+            </Col>
+          </Row>
+          <Row columns={3}>
+            <Col>
+              <Segment>1/3</Segment>
+            </Col>
+            <Col>
+              <Segment>1/3</Segment>
+            </Col>
+            <Col>
+              <Segment>1/3*</Segment>
+            </Col>
+          </Row>
+          <Row columns={4}>
+            <Col>
+              <Segment>1/4</Segment>
+            </Col>
+            <Col>
+              <Segment>1/4</Segment>
+            </Col>
+            <Col>
+              <Segment>1/4</Segment>
+            </Col>
+            <Col>
+              <Segment>1/4*</Segment>
+            </Col>
+          </Row>
+          <Row columns={5}>
+            <Col>
+              <Segment>1/5</Segment>
+            </Col>
+            <Col>
+              <Segment>1/5</Segment>
+            </Col>
+            <Col>
+              <Segment>1/5</Segment>
+            </Col>
+            <Col>
+              <Segment>1/5</Segment>
+            </Col>
+            <Col>
+              <Segment>1/5*</Segment>
+            </Col>
+          </Row>
+        </Grid>
+        <Grid>
+          <Col padding={0}>
+            <Segment>Grid without Row</Segment>
           </Col>
-          <Col>
-            <Segment>1/2*</Segment>
-          </Col>
-        </Row>
-        <Row columns={3}>
-          <Col>
-            <Segment>1/3</Segment>
-          </Col>
-          <Col>
-            <Segment>1/3</Segment>
-          </Col>
-          <Col>
-            <Segment>1/3*</Segment>
-          </Col>
-        </Row>
-        <Row columns={4}>
-          <Col>
-            <Segment>1/4</Segment>
-          </Col>
-          <Col>
-            <Segment>1/4</Segment>
-          </Col>
-          <Col>
-            <Segment>1/4</Segment>
-          </Col>
-          <Col>
-            <Segment>1/4*</Segment>
-          </Col>
-        </Row>
-        <Row columns={5}>
-          <Col>
-            <Segment>1/5</Segment>
-          </Col>
-          <Col>
-            <Segment>1/5</Segment>
-          </Col>
-          <Col>
-            <Segment>1/5</Segment>
-          </Col>
-          <Col>
-            <Segment>1/5</Segment>
-          </Col>
-          <Col>
-            <Segment>1/5*</Segment>
-          </Col>
-        </Row>
-      </Grid>
+        </Grid>
+      </div>
     );
   }
 }

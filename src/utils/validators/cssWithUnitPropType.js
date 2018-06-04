@@ -1,4 +1,4 @@
-const isValid = value => {
+function isValid(value) {
   switch (typeof value) {
     case 'undefined':
     case 'number':
@@ -19,10 +19,10 @@ const isValid = value => {
     default:
       return false;
   }
-};
+}
 
 export default function(props, prop, component) {
-  return !isValid(props[prop])
-    ? new Error(`Invalid prop ${prop} on ${component}`)
-    : null;
+  return isValid(props[prop])
+    ? null
+    : new Error(`Invalid prop ${prop} on ${component}`);
 }
