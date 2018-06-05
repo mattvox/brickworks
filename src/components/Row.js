@@ -27,6 +27,24 @@ const _Row = props => {
   );
 };
 
+/* Additional props / will support? / function
+* as - supported / renders el as another tag
+* children - supported / allows passed children to be rendered
+* columns - supported / create columns, actually sets flex/flex-basis
+
+* centered - should support / shortcuts multiple settings
+* className - should support / concat additional class names
+* only - should support / only renders at specific breakpoint
+* textAlign - should support / sets text alignment of children
+
+* stretched - maybe / allows contents to take up entire grid height
+* verticalAlign - maybe / renames align-items or align-content???
+
+* color - no support / allows row to be colored
+* divided - no support / places dividers in between columns
+* reversed - no support / allows items to reverse order at certain breakpoints
+*/
+
 _Row.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node,

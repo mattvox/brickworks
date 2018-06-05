@@ -14,7 +14,6 @@ const Box = styled.div`
     ((padding || padding === 0) && applyCssWithUnit(padding)) || 0};
   margin: ${({ margin }) =>
     ((margin || margin === 0) && applyCssWithUnit(margin)) || 0};
-
   ${({ grid }) => grid && gridStyles};
   ${({ item }) => item && itemStyles};
 `;

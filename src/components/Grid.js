@@ -50,6 +50,29 @@ const _Grid = props => {
   );
 };
 
+/* Additional props / will support? / function
+* as - supported / renders el as another tag
+* children - supported / allows passed children to be rendered
+* columns - supported / create columns, actually sets flex/flex-basis
+
+* centered - should support / shortcuts multiple settings
+* className - should support / concat additional class names
+* textAlign - should support / sets text alignment of children
+
+* container - maybe, needs investigation / wrapper that allows for width, max-width, etc
+* doubling - maybe / doubles item/col width on smaller screens
+* padded - maybe, needs investigation / shortcuts multiple settings
+* relaxed - maybe, needs investigation / might just be space-between
+* stackable - maybe / stacks items when reaching mobile breakpoints
+* stretched - maybe / allows contents to take up entire grid height
+* verticalAlign - maybe / renames align-items or align-content???
+
+* celled - no support / places dividers/borders on all children
+* divided - no support / places dividers in between columns
+* inverted - no support / inverts colors, which aren't supported
+* reversed - no support / allows items to reverse order at certain breakpoints
+*/
+
 _Grid.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node,
