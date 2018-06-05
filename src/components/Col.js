@@ -1,42 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 
 import getElementType from '../utils/getElementType';
-import applyCssWithUnit from '../utils/applyCssWithUnit';
 import cssWithUnitPropType from '../utils/validators/cssWithUnitPropType';
-import { gridStyles } from './Grid';
+import { gridStyles, itemStyles } from '../utils/styles';
+import Layout from './Layout';
 
 // prettier-ignore
-export const itemStyles = css`
-  flex: 0 1 auto;
-  align-self: ${({ align }) => align || 'auto'};
-  order: ${({ order }) => order || 0};
-
-  ${({ grow }) => grow && css`
-    flex-grow: ${grow};
-  `};
-
-  ${({ shrink }) => shrink && css`
-    flex-grow: ${shrink};
-  `};
-
-  ${({ basis }) => basis && css`
-    flex-basis: ${applyCssWithUnit(basis, '%')};
-  `};
-
-  ${({ flex }) => flex && css`
-    flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
-  `};
-`;
-
-// prettier-ignore
-const Col = styled.div`
+export const Col = Layout.extend`
   ${itemStyles}
-  padding: ${({ padding }) =>
-    ((padding || padding === 0) && applyCssWithUnit(padding)) || '1em'};
-  margin: ${({ margin }) =>
-    ((margin || margin === 0) && applyCssWithUnit(margin)) || 0};
 
   ${({ grid }) => grid && gridStyles};
 `;
@@ -97,8 +69,6 @@ Col.propTypes = {
     'initial',
     'inherit',
   ]),
-  padding: cssWithUnitPropType,
-  margin: cssWithUnitPropType,
 };
 
 export default _Col;

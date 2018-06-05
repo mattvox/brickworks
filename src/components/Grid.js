@@ -1,43 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 
 import getElementType from '../utils/getElementType';
-import applyCssWithUnit from '../utils/applyCssWithUnit';
-import cssWithUnitPropType from '../utils/validators/cssWithUnitPropType';
+import { gridStyles } from '../utils/styles';
+import Layout from './Layout';
 
 // prettier-ignore
-export const gridStyles = css`
-  display: flex;
-  flex-wrap: ${({ fwrap }) => fwrap || 'nowrap'};
-  flex-direction: ${({ direction }) => direction || 'row'};
-  justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
-  align-content: ${({ alignContent }) => alignContent || 'stretch'};
-  align-items: ${({ alignItems }) => alignItems || 'stretch'};
-
-  ${({ flow }) => flow && css`
-    flex-flow: flow;
-  `}
-
-  ${({ columns }) => columns && css`
-    > .brickworks-col {
-      flex: 0 1 ${100 / columns}%;
-    }
-
-    > .brickworks-box {
-      flex: 0 1 ${100 / columns}%;
-    }
-  `}
-`;
-
-// prettier-ignore
-export const Grid = styled.div`
+export const Grid = Layout.extend`
   ${gridStyles}
   flex-wrap: ${({ fwrap }) => fwrap || 'wrap'};
-  padding: ${({ padding }) =>
-    ((padding || padding === 0) && applyCssWithUnit(padding)) || 0};
-  margin: ${({ margin }) =>
-    ((margin || margin === 0) && applyCssWithUnit(margin)) || '1em'};
 `;
 
 const _Grid = props => {
@@ -139,8 +110,6 @@ Grid.propTypes = {
     'initial',
     'inherit',
   ]),
-  padding: cssWithUnitPropType,
-  margin: cssWithUnitPropType,
 };
 
 export default _Grid;

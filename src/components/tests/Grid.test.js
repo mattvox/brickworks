@@ -4,7 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-styled-components';
 
-import Grid from './Grid';
+import { Grid } from '../Grid';
 
 Enzyme.configure({ adapter: new Adapter() });
 

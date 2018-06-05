@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import getElementType from '../utils/getElementType';
-import applyCssWithUnit from '../utils/applyCssWithUnit';
 import cssWithUnitPropType from '../utils/validators/cssWithUnitPropType';
-import { gridStyles } from './Grid';
-import { itemStyles } from './Col';
+import { gridStyles, itemStyles } from '../utils/styles';
+import Layout from './Layout';
 
 // prettier-ignore
-const Box = styled.div`
-  padding: ${({ padding }) =>
-    ((padding || padding === 0) && applyCssWithUnit(padding)) || 0};
-  margin: ${({ margin }) =>
-    ((margin || margin === 0) && applyCssWithUnit(margin)) || 0};
+const Box = Layout.extend`
   ${({ grid }) => grid && gridStyles};
   ${({ item }) => item && itemStyles};
 `;
@@ -113,8 +107,6 @@ Box.propTypes = {
     'initial',
     'inherit',
   ]),
-  padding: cssWithUnitPropType,
-  margin: cssWithUnitPropType,
 };
 
 export default _Box;

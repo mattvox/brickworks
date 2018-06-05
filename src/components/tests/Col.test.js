@@ -4,12 +4,12 @@ import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-styled-components';
 
-import Row from './Row';
+import { Col } from '../Col';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Row />', () => {
-  const wrapper = shallow(<Row />);
+describe('<Col />', () => {
+  const wrapper = shallow(<Col />);
 
   it('should match snapshot', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
