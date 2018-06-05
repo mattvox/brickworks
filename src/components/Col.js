@@ -7,7 +7,7 @@ import applyCssWithUnit from '../utils/applyCssWithUnit';
 import cssWithUnitPropType from '../utils/validators/cssWithUnitPropType';
 import { gridStyles } from './Grid';
 
-//prettier-ignore
+// prettier-ignore
 export const itemStyles = css`
   flex: 0 1 auto;
   align-self: ${({ align }) => align || 'auto'};
