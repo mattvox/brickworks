@@ -14,11 +14,10 @@ const Segment = styled.div`
 
 export default class App extends Component {
   render() {
-    console.log('rendered');
     return (
       <div>
         <Grid>
-          <Row>
+          <Row as="section">
             <Col flex={{ grow: 0, shrink: 1, basis: 50 }}>
               <Segment>1/2</Segment>
             </Col>
@@ -69,9 +68,53 @@ export default class App extends Component {
             </Col>
           </Row>
         </Grid>
+        <Grid justifyContent="space-between" padding="0 1em">
+          <Col basis={20} padding={0}>
+            <Segment>Grid without Row 20%</Segment>
+          </Col>
+          <Col basis={20} padding={0}>
+            <Segment>Grid without Row 20%</Segment>
+          </Col>
+          <Col basis={20} padding={0}>
+            <Segment>Grid without Row 20%</Segment>
+          </Col>
+          <Col basis={20} padding={0}>
+            <Segment>Grid without Row 20%</Segment>
+          </Col>
+        </Grid>
+        <Grid justifyContent="space-around" padding="0 1em">
+          <Col basis={25} padding={0}>
+            <Segment>Grid without Row 25%</Segment>
+          </Col>
+          <Col basis={40} padding={0}>
+            <Segment>Grid without Row 40%</Segment>
+          </Col>
+          <Col basis={25} padding={0}>
+            <Segment>Grid without Row 25%</Segment>
+          </Col>
+        </Grid>
         <Grid>
-          <Col padding={0}>
-            <Segment>Grid without Row</Segment>
+          <Row>
+            <Col>
+              <Segment>Grid without Row 30%</Segment>
+            </Col>
+            <Col>
+              <Segment>Grid without Row 30%</Segment>
+            </Col>
+            <Col>
+              <Segment>Grid without Row 30%</Segment>
+            </Col>
+          </Row>
+          <Col grid basis="100%" justify="space-between" columns={3}>
+            <Col style={{ paddingLeft: 0 }}>
+              <Segment>1/3</Segment>
+            </Col>
+            <Col>
+              <Segment>1/3</Segment>
+            </Col>
+            <Col style={{ paddingRight: 0 }}>
+              <Segment>1/3</Segment>
+            </Col>
           </Col>
         </Grid>
       </div>

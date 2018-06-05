@@ -5,57 +5,36 @@ import styled, { css } from 'styled-components';
 import getElementType from '../utils/getElementType';
 import applyCssWithUnit from '../utils/applyCssWithUnit';
 import cssWithUnitPropType from '../utils/validators/cssWithUnitPropType';
+import { gridStyles } from './Grid';
+import { itemStyles } from './Col';
 
 // prettier-ignore
-export const gridStyles = css`
-  display: flex;
-  flex-wrap: ${({ fwrap }) => fwrap || 'nowrap'};
-  flex-direction: ${({ direction }) => direction || 'row'};
-  justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
-  align-content: ${({ alignContent }) => alignContent || 'stretch'};
-  align-items: ${({ alignItems }) => alignItems || 'stretch'};
-
-  ${({ flow }) => flow && css`
-    flex-flow: flow;
-  `}
-
-  ${({ columns }) => columns && css`
-    > .brickworks-col {
-      flex: 0 1 ${100 / columns}%;
-    }
-
-    > .brickworks-box {
-      flex: 0 1 ${100 / columns}%;
-    }
-  `}
-`;
-
-// prettier-ignore
-export const Grid = styled.div`
-  ${gridStyles}
-  flex-wrap: ${({ fwrap }) => fwrap || 'wrap'};
+const Box = styled.div`
   padding: ${({ padding }) =>
     ((padding || padding === 0) && applyCssWithUnit(padding)) || 0};
   margin: ${({ margin }) =>
-    ((margin || margin === 0) && applyCssWithUnit(margin)) || '1em'};
+    ((margin || margin === 0) && applyCssWithUnit(margin)) || 0};
+
+  ${({ grid }) => grid && gridStyles};
+  ${({ item }) => item && itemStyles};
 `;
 
-const _Grid = props => {
+const _Box = props => {
   const { as, children, ...rest } = props;
-  const Element = Grid.withComponent(getElementType(_Grid, props));
+  const Element = Box.withComponent(getElementType(_Box, props));
   return (
-    <Element className="brickworks-grid" {...rest}>
+    <Element className="brickworks-box" {...rest}>
       {children}
     </Element>
   );
 };
 
-_Grid.propTypes = {
+_Box.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node,
 };
 
-Grid.propTypes = {
+Box.propTypes = {
   columns: PropTypes.number,
   fwrap: PropTypes.oneOf([
     'nowrap',
@@ -116,8 +95,27 @@ Grid.propTypes = {
     'initial',
     'inherit',
   ]),
+  order: PropTypes.number,
+  flex: PropTypes.shape({
+    grow: PropTypes.number,
+    shrink: PropTypes.number,
+    basis: cssWithUnitPropType,
+  }),
+  grow: PropTypes.number,
+  shrink: PropTypes.number,
+  basis: cssWithUnitPropType,
+  align: PropTypes.oneOf([
+    'auto',
+    'flex-start',
+    'flex-end',
+    'center',
+    'baseline',
+    'stretch',
+    'initial',
+    'inherit',
+  ]),
   padding: cssWithUnitPropType,
   margin: cssWithUnitPropType,
 };
 
-export default _Grid;
+export default _Box;
