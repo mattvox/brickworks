@@ -24,6 +24,18 @@ const _Row = props => {
   );
 };
 
+const Wrapper = Component => props => {
+  const { as, children, ...rest } = props;
+  const Element = Component.withComponent(getElementType(Component, props));
+  return (
+    <Element className="brickworks-col" {...rest}>
+      {children}
+    </Element>
+  );
+};
+
+export default Wrapper(Row);
+
 /* Additional props / will support? / function
 * as - supported / renders el as another tag
 * children - supported / allows passed children to be rendered
@@ -47,4 +59,4 @@ _Row.propTypes = {
   children: PropTypes.node,
 };
 
-export default _Row;
+// export default _Row;

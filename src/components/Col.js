@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import getElementType from '../utils/getElementType';
-import cssWithUnitPropType from '../utils/validators/cssWithUnitPropType';
-import { gridStyles, itemStyles } from '../utils/styles';
+import { gridStyles, itemStyles } from './styles';
+import { itemTypes } from './types';
+import wrapper from './hoc/wrapper';
 import Layout from './Layout';
 
 // prettier-ignore
@@ -22,6 +23,20 @@ const _Col = props => {
     </Element>
   );
 };
+
+export default wrapper(Col);
+
+// const Wrapper = Component => props => {
+//   const { as, children, ...rest } = props;
+//   const Element = Component.withComponent(getElementType(Component, props));
+//   return (
+//     <Element className="brickworks-col" {...rest}>
+//       {children}
+//     </Element>
+//   );
+// };
+
+// export default Wrapper(Col);
 
 /* Additional props / will support? / function
 * as - supported / renders el as another tag
@@ -50,25 +65,7 @@ _Col.propTypes = {
 };
 
 Col.propTypes = {
-  order: PropTypes.number,
-  flex: PropTypes.shape({
-    grow: PropTypes.number,
-    shrink: PropTypes.number,
-    basis: cssWithUnitPropType,
-  }),
-  grow: PropTypes.number,
-  shrink: PropTypes.number,
-  basis: cssWithUnitPropType,
-  align: PropTypes.oneOf([
-    'auto',
-    'flex-start',
-    'flex-end',
-    'center',
-    'baseline',
-    'stretch',
-    'initial',
-    'inherit',
-  ]),
+  ...itemTypes,
 };
 
-export default _Col;
+// export default _Col;

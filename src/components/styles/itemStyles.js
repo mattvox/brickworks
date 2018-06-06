@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import applyCssWithUnit from '../applyCssWithUnit';
+import applyCssWithUnit from '../../utils/applyCssWithUnit';
 
 // prettier-ignore
 export default css`

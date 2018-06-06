@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import getElementType from '../utils/getElementType';
-import { gridStyles } from '../utils/styles';
+import { gridStyles } from './styles';
+import { gridTypes } from './types';
 import Layout from './Layout';
 
 // prettier-ignore
@@ -20,6 +21,18 @@ const _Grid = props => {
     </Element>
   );
 };
+
+const Wrapper = Component => props => {
+  const { as, children, ...rest } = props;
+  const Element = Component.withComponent(getElementType(Component, props));
+  return (
+    <Element className="brickworks-col" {...rest}>
+      {children}
+    </Element>
+  );
+};
+
+export default Wrapper(Grid);
 
 /* Additional props / will support? / function
 * as - supported / renders el as another tag
@@ -49,67 +62,71 @@ _Grid.propTypes = {
   children: PropTypes.node,
 };
 
-Grid.propTypes = {
-  columns: PropTypes.number,
-  fwrap: PropTypes.oneOf([
-    'nowrap',
-    'wrap',
-    'wrap-reverse',
-    'initial',
-    'inherit',
-  ]),
-  direction: PropTypes.oneOf([
-    'row',
-    'row-reverse',
-    'column',
-    'column-reverse',
-    'initial',
-    'inherit',
-  ]),
-  flow: PropTypes.oneOf([
-    'row nowrap',
-    'row wrap',
-    'row wrap-reverse',
-    'row-reverse nowrap',
-    'row-reverse wrap',
-    'row-reverse wrap-reverse',
-    'column nowrap',
-    'column wrap',
-    'column wrap-reverse',
-    'column-reverse nowrap',
-    'column-reverse wrap',
-    'column-reverse wrap-reverse',
-    'initial',
-    'inherit',
-  ]),
-  justifyContent: PropTypes.oneOf([
-    'flex-start',
-    'flex-end',
-    'center',
-    'space-between',
-    'space-around',
-    'initial',
-    'inherit',
-  ]),
-  alignContent: PropTypes.oneOf([
-    'flex-start',
-    'flex-end',
-    'center',
-    'space-between',
-    'space-around',
-    'stretch',
-    'initial',
-    'inherit',
-  ]),
-  alignItems: PropTypes.oneOf([
-    'flex-start',
-    'flex-end',
-    'center',
-    'baseline',
-    'stretch',
-    'initial',
-    'inherit',
-  ]),
+Grid.PropTypes = {
+  ...gridTypes,
 };
 
-export default _Grid;
+// Grid.propTypes = {
+//   columns: PropTypes.number,
+//   fwrap: PropTypes.oneOf([
+//     'nowrap',
+//     'wrap',
+//     'wrap-reverse',
+//     'initial',
+//     'inherit',
+//   ]),
+//   direction: PropTypes.oneOf([
+//     'row',
+//     'row-reverse',
+//     'column',
+//     'column-reverse',
+//     'initial',
+//     'inherit',
+//   ]),
+//   flow: PropTypes.oneOf([
+//     'row nowrap',
+//     'row wrap',
+//     'row wrap-reverse',
+//     'row-reverse nowrap',
+//     'row-reverse wrap',
+//     'row-reverse wrap-reverse',
+//     'column nowrap',
+//     'column wrap',
+//     'column wrap-reverse',
+//     'column-reverse nowrap',
+//     'column-reverse wrap',
+//     'column-reverse wrap-reverse',
+//     'initial',
+//     'inherit',
+//   ]),
+//   justifyContent: PropTypes.oneOf([
+//     'flex-start',
+//     'flex-end',
+//     'center',
+//     'space-between',
+//     'space-around',
+//     'initial',
+//     'inherit',
+//   ]),
+//   alignContent: PropTypes.oneOf([
+//     'flex-start',
+//     'flex-end',
+//     'center',
+//     'space-between',
+//     'space-around',
+//     'stretch',
+//     'initial',
+//     'inherit',
+//   ]),
+//   alignItems: PropTypes.oneOf([
+//     'flex-start',
+//     'flex-end',
+//     'center',
+//     'baseline',
+//     'stretch',
+//     'initial',
+//     'inherit',
+//   ]),
+// };
+
+// export default _Grid;
