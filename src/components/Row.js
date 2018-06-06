@@ -1,7 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import getElementType from '../utils/getElementType';
+import composeComponent from '../utils/composeComponent';
 import { Grid } from './Grid';
 
 // prettier-ignore
@@ -14,37 +11,26 @@ export const Row = Grid.extend`
   align-items: ${({ alignItems }) => alignItems || 'inherit'};
 `;
 
-const _Row = props => {
-  const { as, children, ...rest } = props;
-  const Element = Row.withComponent(getElementType(_Row, props));
-  return (
-    <Element className="brickworks-row" {...rest}>
-      {children}
-    </Element>
-  );
+const ComposedRow = composeComponent(Row, 'Row');
+
+ComposedRow.defaultProps = {
+  displayName: 'row',
 };
 
-const Wrapper = Component => props => {
-  const { as, children, ...rest } = props;
-  const Element = Component.withComponent(getElementType(Component, props));
-  return (
-    <Element className="brickworks-col" {...rest}>
-      {children}
-    </Element>
-  );
-};
-
-export default Wrapper(Row);
+export default ComposedRow;
 
 /* Additional props / will support? / function
 * as - supported / renders el as another tag
 * children - supported / allows passed children to be rendered
 * columns - supported / create columns, actually sets flex/flex-basis
+* textAlign - supported / sets text alignment of children
+* className - supported / concat additional class names
+* left - supported / sets margin auto
+* right - supported / sets margin auto
+* centered - supported / sets margin auto
 
-* centered - should support / shortcuts multiple settings
-* className - should support / concat additional class names
+* BREAKPOINTS SETTINGS ONLY
 * only - should support / only renders at specific breakpoint
-* textAlign - should support / sets text alignment of children
 
 * stretched - maybe / allows contents to take up entire grid height
 * verticalAlign - maybe / renames align-items or align-content???
@@ -53,10 +39,3 @@ export default Wrapper(Row);
 * divided - no support / places dividers in between columns
 * reversed - no support / allows items to reverse order at certain breakpoints
 */
-
-_Row.propTypes = {
-  as: PropTypes.string,
-  children: PropTypes.node,
-};
-
-// export default _Row;

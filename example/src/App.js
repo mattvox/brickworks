@@ -3,9 +3,6 @@ import styled from 'styled-components';
 
 import { Grid, Col, Row } from 'brickworks';
 
-// const Section = Grid.withComponent('section');
-// Grid.section = Grid.withComponent('section');
-
 const Segment = styled.div`
   border: 1px blue solid;
   text-align: center;
@@ -16,7 +13,20 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Grid>
+        <Grid as="main" style={{ height: '100vh' }}>
+          <Row as="section" style={{ height: '100%' }}>
+            <Col as="div" align="center">
+              <Segment>1</Segment>
+            </Col>
+            <Col as="div">
+              <Segment>2</Segment>
+            </Col>
+            <Col as="div">
+              <Segment>3</Segment>
+            </Col>
+          </Row>
+        </Grid>
+        {/* <Grid>
           <Row as="section">
             <Col flex={{ grow: 0, shrink: 1, basis: 50 }}>
               <Segment>1/2</Segment>
@@ -116,7 +126,7 @@ export default class App extends Component {
               <Segment>1/3</Segment>
             </Col>
           </Col>
-        </Grid>
+        </Grid> */}
       </div>
     );
   }

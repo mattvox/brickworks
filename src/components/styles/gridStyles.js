@@ -18,7 +18,7 @@ export default css`
       flex: 0 1 ${100 / columns}%;
     }
 
-    > .brickworks-box {
+    > .brickworks-brick {
       flex: 0 1 ${100 / columns}%;
     }
   `}

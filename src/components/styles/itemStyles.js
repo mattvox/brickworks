@@ -5,8 +5,10 @@ import applyCssWithUnit from '../../utils/applyCssWithUnit';
 // prettier-ignore
 export default css`
   flex: 0 1 auto;
-  align-self: ${({ align }) => align || 'auto'};
-  order: ${({ order }) => order || 0};
+
+  ${({ flex }) => flex && css`
+    flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
+  `};
 
   ${({ grow }) => grow && css`
     flex-grow: ${grow};
@@ -20,7 +22,11 @@ export default css`
     flex-basis: ${applyCssWithUnit(basis, '%')};
   `};
 
-  ${({ flex }) => flex && css`
-    flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
-  `};
+  ${({ order }) => order && css`
+    order: ${order};
+  `};  
+  
+  ${({ align }) => align && css`
+    align-self: ${align}
+  `}
 `;

@@ -1,4 +1,4 @@
-import { oneOf } from 'prop-types';
+import { bool, oneOf } from 'prop-types';
 import cssWithUnit from './custom/cssWithUnit';
 
 export default {
@@ -20,4 +20,7 @@ export default {
     'initial',
     'inherit',
   ]),
+  left: bool,
+  right: bool,
+  centered: bool,
 };
