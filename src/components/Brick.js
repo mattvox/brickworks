@@ -16,10 +16,6 @@ Brick.propTypes = {
   ...itemTypes,
 };
 
-const ComposedBrick = composeComponent(Brick);
-
-ComposedBrick.defaultProps = {
-  displayName: 'brick',
-};
+const ComposedBrick = composeComponent(Brick, 'Brick');
 
 export default ComposedBrick;

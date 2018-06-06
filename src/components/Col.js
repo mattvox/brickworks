@@ -15,10 +15,6 @@ Col.propTypes = {
 
 const ComposedCol = composeComponent(Col, 'Col');
 
-// ComposedCol.defaultProps = {
-//   displayName: 'col',
-// };
-
 export default ComposedCol;
 
 /* Additional props / will support? / function

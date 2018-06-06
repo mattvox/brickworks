@@ -13,10 +13,6 @@ export const Row = Grid.extend`
 
 const ComposedRow = composeComponent(Row, 'Row');
 
-ComposedRow.defaultProps = {
-  displayName: 'row',
-};
-
 export default ComposedRow;
 
 /* Additional props / will support? / function

@@ -15,10 +15,6 @@ Grid.propTypes = {
 
 const ComposedGrid = composeComponent(Grid, 'Grid');
 
-ComposedGrid.defaultProps = {
-  displayName: 'grid',
-};
-
 export default ComposedGrid;
 
 /* Additional props / will support? / function
