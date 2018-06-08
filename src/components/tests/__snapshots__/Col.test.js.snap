@@ -5,9 +5,11 @@ exports[`<Col /> should match snapshot 1`] = `
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
+  box-sizing: border-box;
+  border: 1px solid red;
 }
 
 <div
-  className="c0"
+  className="brickworks c0"
 />
 `;

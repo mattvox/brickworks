@@ -4,7 +4,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest-styled-components';
 
-import { Row } from '../Row';
+import Row from '../Row';
 
 Enzyme.configure({ adapter: new Adapter() });
 

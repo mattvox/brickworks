@@ -1,5 +1,5 @@
-import composeComponent from '../utils/composeComponent';
-import { Grid } from './Grid';
+// import composeComponent from '../utils/composeComponent';
+import Grid from './Grid';
 
 // prettier-ignore
 export const Row = Grid.extend`
@@ -11,9 +11,9 @@ export const Row = Grid.extend`
   align-items: ${({ alignItems }) => alignItems || 'inherit'};
 `;
 
-const ComposedRow = composeComponent(Row, 'Row');
+// const ComposedRow = composeComponent(Row, 'Row');
 
-export default ComposedRow;
+export default Row;
 
 /* Additional props / will support? / function
 * as - supported / renders el as another tag

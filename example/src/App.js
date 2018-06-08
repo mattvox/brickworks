@@ -7,7 +7,10 @@ const Segment = styled.div`
   border: 1px blue solid;
   text-align: center;
   padding: 20px;
+  margin: 20px;
 `;
+
+// Col.section = Col.withComponent('section');
 
 export default class App extends Component {
   render() {
@@ -15,9 +18,9 @@ export default class App extends Component {
       <div>
         <Grid>
           <Row columns={3}>
-            <Col>
+            <Col.section>
               <Segment>1</Segment>
-            </Col>
+            </Col.section>
             <Col>
               <Segment>2</Segment>
             </Col>

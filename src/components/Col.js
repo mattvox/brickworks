@@ -1,11 +1,40 @@
-import composeComponent from '../utils/composeComponent';
-import { gridStyles, itemStyles } from './styles';
+import { gridStyles } from './Grid';
 import { itemTypes } from './types';
 import Layout from './Layout';
 
+import { css } from 'styled-components';
+import applyCssWithUnit from '../utils/applyCssWithUnit';
+
 // prettier-ignore
-export const Col = Layout.extend`
-  ${itemStyles}
+export const Col = Layout.extend.attrs({ className: 'brickworks' })`
+  flex: 0 1 auto;
+  box-sizing: border-box;
+  border: 1px solid red;
+
+  ${({ flex }) => flex && css`
+    flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
+  `};
+
+  ${({ grow }) => grow && css`
+    flex-grow: ${grow};
+  `};
+
+  ${({ shrink }) => shrink && css`
+    flex-grow: ${shrink};
+  `};
+
+  ${({ basis }) => basis && css`
+    flex-basis: ${applyCssWithUnit(basis, '%')};
+  `};
+
+  ${({ order }) => order && css`
+    order: ${order};
+  `};  
+  
+  ${({ align }) => align && css`
+    align-self: ${align}
+  `};
+
   ${({ grid }) => grid && gridStyles};
 `;
 
@@ -13,9 +42,9 @@ Col.propTypes = {
   ...itemTypes,
 };
 
-const ComposedCol = composeComponent(Col, 'Col');
+Col.section = Col.withComponent('section');
 
-export default ComposedCol;
+export default Col;
 
 /* Additional props / will support? / function
 * as - supported / renders component as another tag
