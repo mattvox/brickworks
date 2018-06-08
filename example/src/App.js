@@ -13,15 +13,15 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Grid as="main" style={{ height: '100vh' }}>
-          <Row as="section" style={{ height: '100%' }}>
-            <Col as="div" align="center">
+        <Grid>
+          <Row columns={3}>
+            <Col>
               <Segment>1</Segment>
             </Col>
-            <Col as="div">
+            <Col>
               <Segment>2</Segment>
             </Col>
-            <Col as="div">
+            <Col>
               <Segment>3</Segment>
             </Col>
           </Row>

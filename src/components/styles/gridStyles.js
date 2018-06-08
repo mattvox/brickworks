@@ -22,4 +22,52 @@ export default css`
       flex: 0 1 ${100 / columns}%;
     }
   `}
+
+  ${({ sm }) => sm && css`
+    @media screen and (min-width: 576px) {
+      > .brickworks-col {
+        flex: 0 1 ${100 / sm}%;
+      }
+
+      > .brickworks-brick {
+        flex: 0 1 ${100 / sm}%;
+      }
+    }
+  `}
+
+  ${({ md }) => md && css`
+    @media screen and (min-width: 768px) {
+      > .brickworks-col {
+        flex: 0 1 ${100 / md}%;
+      }
+
+      > .brickworks-brick {
+        flex: 0 1 ${100 / md}%;
+      }
+    }
+  `}
+
+  ${({ lg }) => lg && css`
+    @media screen and (min-width: 992px) {
+      > .brickworks-col {
+        flex: 0 1 ${100 / lg}%;
+      }
+
+      > .brickworks-brick {
+        flex: 0 1 ${100 / lg}%;
+      }
+    }
+  `}
+
+  ${({ xl }) => xl && css`
+    @media screen and (min-width: 1200px) {
+      > .brickworks-col {
+        flex: 0 1 ${100 / xl}%;
+      }
+
+      > .brickworks-brick {
+        flex: 0 1 ${100 / xl}%;
+      }
+    }
+  `}
 `;
