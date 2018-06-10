@@ -1,6 +1,6 @@
 {
   "name": "brickworks",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Lightweight, dynamic, extremely simple layouts for React",
   "author": "Matthew Bliffert",
   "license": "MIT",
