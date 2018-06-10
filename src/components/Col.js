@@ -1,48 +1,36 @@
+import styled, { css } from 'styled-components';
+
+import applyCssWithUnit from '../utils/applyCssWithUnit';
 import { gridStyles } from './Grid';
 import { itemTypes } from './types';
 import Layout from './Layout';
 
-import { css } from 'styled-components';
-import applyCssWithUnit from '../utils/applyCssWithUnit';
-
 // prettier-ignore
-export const Col = Layout.extend.attrs({ className: 'brickworks' })`
+const itemStyles = css`
   flex: 0 1 auto;
   box-sizing: border-box;
   border: 1px solid red;
 
-  ${({ flex }) => flex && css`
-    flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
-  `};
+  ${({ flex, grow, shrink, basis, order, align, grid }) => css`
+    ${flex && css`
+      flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
+    `}
 
-  ${({ grow }) => grow && css`
-    flex-grow: ${grow};
-  `};
-
-  ${({ shrink }) => shrink && css`
-    flex-grow: ${shrink};
-  `};
-
-  ${({ basis }) => basis && css`
-    flex-basis: ${applyCssWithUnit(basis, '%')};
-  `};
-
-  ${({ order }) => order && css`
-    order: ${order};
-  `};  
-  
-  ${({ align }) => align && css`
-    align-self: ${align}
-  `};
-
-  ${({ grid }) => grid && gridStyles};
+    ${grow && css`flex-grow: ${grow};`}
+    ${shrink && css`flex-shrink: ${shrink};`}
+    ${basis && css`flex-basis: ${basis};`}
+    ${order && css`order: ${order};`}
+    ${align && css`align-self: ${align};`}
+    ${grid && gridStyles}
+  `}
 `;
+
+// prettier-ignore
+export const Col = styled(Layout).attrs({ className: 'brickworks' })`${itemStyles}`;
 
 Col.propTypes = {
   ...itemTypes,
 };
-
-Col.section = Col.withComponent('section');
 
 export default Col;
 

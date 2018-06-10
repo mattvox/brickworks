@@ -34,8 +34,4 @@ describe('<Grid />', () => {
   it('should match snapshot', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
   });
-
-  it('should render a <div>', () => {
-    expect(wrapper.find('div').exists()).toBe(true);
-  });
 });

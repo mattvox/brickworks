@@ -1,8 +1,8 @@
-// import composeComponent from '../utils/composeComponent';
+import styled from 'styled-components';
 import Grid from './Grid';
 
 // prettier-ignore
-export const Row = Grid.extend`
+export const Row = styled(Grid)`
   flex: 0 1 100%;
   flex-wrap: ${({ fwrap }) => fwrap || 'wrap'};
   flex-direction: ${({ direction }) => direction || 'inherit'};
@@ -10,8 +10,6 @@ export const Row = Grid.extend`
   align-content: ${({ alignContent }) => alignContent || 'inherit'};
   align-items: ${({ alignItems }) => alignItems || 'inherit'};
 `;
-
-// const ComposedRow = composeComponent(Row, 'Row');
 
 export default Row;
 

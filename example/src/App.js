@@ -18,9 +18,9 @@ export default class App extends Component {
       <div>
         <Grid>
           <Row columns={3}>
-            <Col.section>
+            <Col>
               <Segment>1</Segment>
-            </Col.section>
+            </Col>
             <Col>
               <Segment>2</Segment>
             </Col>

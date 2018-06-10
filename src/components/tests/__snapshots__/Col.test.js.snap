@@ -9,7 +9,7 @@ exports[`<Col /> should match snapshot 1`] = `
   border: 1px solid red;
 }
 
-<div
+<styled.div
   className="brickworks c0"
 />
 `;

@@ -1,9 +1,8 @@
-// import composeComponent from '../utils/composeComponent';
+import styled, { css } from 'styled-components';
+
 import { gridTypes } from './types';
 import Layout from './Layout';
 import Col from './Col';
-
-import { css } from 'styled-components';
 
 // prettier-ignore
 export const gridStyles = css`
@@ -14,48 +13,57 @@ export const gridStyles = css`
   align-content: ${({ alignContent }) => alignContent || 'stretch'};
   align-items: ${({ alignItems }) => alignItems || 'stretch'};
 
-  ${({ flow }) => flow && css`
-      flex-flow: flow;`};
+  ${({ flow, columns, xs, sm, md, lg, xl }) => css`
+    ${flow && css`flex-flow: ${flow};`}
 
-  ${({ columns }) => columns && css`
-      > ${Col.section} {
-          flex: 0 1 ${100 / columns}%;
-        }
-      > .brickworks-col {
+    ${columns && css`
+      > ${Col} {
         flex: 0 1 ${100 / columns}%;
-      }`};
+      }
+    `}
 
-  ${({ sm }) => sm && css`
+    ${xs && css`
+      > ${Col} {
+        flex: 0 1 ${100 / xs}%;
+      }
+    `}
+
+    ${sm && css`
       @media screen and (min-width: 576px) {
         > ${Col} {
           flex: 0 1 ${100 / sm}%;
         }
-      }`};
+      }
+    `}
 
-  ${({ md }) => md && css`
+    ${md && css`
       @media screen and (min-width: 768px) {
         > ${Col} {
           flex: 0 1 ${100 / md}%;
         }
-      }`};
+      }
+    `}
 
-  ${({ lg }) => lg && css`
+    ${lg && css`
       @media screen and (min-width: 992px) {
         > ${Col} {
           flex: 0 1 ${100 / lg}%;
         }
-      }`};
-
-  ${({ xl }) => xl && css`
-    @media screen and (min-width: 1200px) {
-      > ${Col} {
-        flex: 0 1 ${100 / xl}%;
       }
-    }`};
+    `}
+
+    ${xl && css`
+      @media screen and (min-width: 1200px) {
+        > ${Col} {
+          flex: 0 1 ${100 / xl}%;
+        }
+      }
+    `}
+  `}
 `;
 
 // prettier-ignore
-const Grid = Layout.extend`
+const Grid = styled(Layout)`
   ${gridStyles}
   flex-wrap: ${({ fwrap }) => fwrap || 'wrap'};
 `;
@@ -63,8 +71,6 @@ const Grid = Layout.extend`
 Grid.propTypes = {
   ...gridTypes,
 };
-
-// const ComposedGrid = composeComponent(Grid, 'Grid');
 
 export default Grid;
 
@@ -77,6 +83,10 @@ export default Grid;
 *** TODO
 *** Change current Brick back to Box, or Flexbox for
 *** component name
+
+*** TODO
+*** Remove extend and replace with styled() in all places,
+*** extend being deprecated and removed in future builds
 
 * children - supported / allows passed children to be rendered
 * columns - supported / create columns, actually sets flex/flex-basis

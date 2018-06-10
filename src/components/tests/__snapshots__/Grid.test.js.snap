@@ -28,7 +28,7 @@ exports[`<Grid /> should match snapshot 1`] = `
   flex-wrap: wrap;
 }
 
-<div
+<styled.div
   className="c0"
 />
 `;

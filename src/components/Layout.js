@@ -5,20 +5,37 @@ import { layoutTypes } from './types';
 
 // prettier-ignore
 const Layout = styled.div`
-  ${({ padding }) => padding && css`padding: ${applyCssWithUnit(padding)};`};
-  ${({ paddingTop }) => paddingTop && css`padding-top: ${applyCssWithUnit(paddingTop)};`};
-  ${({ paddingRight }) => paddingRight && css`padding-right: ${applyCssWithUnit(paddingRight)};`};
-  ${({ paddingBottom }) => paddingBottom && css`padding-bottom: ${applyCssWithUnit(paddingBottom)};`};
-  ${({ paddingLeft }) => paddingLeft && css`padding-left: ${applyCssWithUnit(paddingLeft)};`};
-  ${({ margin }) => margin && css`margin: ${applyCssWithUnit(margin)};`};
-  ${({ marginTop }) => marginTop && css`margin-top: ${applyCssWithUnit(marginTop)};`};
-  ${({ marginRight }) => marginRight && css`margin-right: ${applyCssWithUnit(marginRight)};`};
-  ${({ marginBottom }) => marginBottom && css`margin-bottom: ${applyCssWithUnit(marginBottom)};`};
-  ${({ marginLeft }) => marginLeft && css`margin-left: ${applyCssWithUnit(marginLeft)};`};
-  ${({ textAlign }) => textAlign && css`text-align: ${textAlign};`};
-  ${({ left }) => left && css`margin-right: 'auto';`};
-  ${({ right }) => right && css`margin-left: 'auto';`};
-  ${({ centered }) => centered && css`margin-left: 'auto';margin-right: 'auto';`};
+  ${({
+    padding,
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
+    margin,
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+    textAlign,
+    left,
+    right,
+    centered,
+  }) => css`
+    ${padding && css`padding: ${applyCssWithUnit(padding)};`}
+    ${paddingTop && css`paddingTop: ${applyCssWithUnit(paddingTop)};`}
+    ${paddingRight && css`paddingRight: ${applyCssWithUnit(paddingRight)};`}
+    ${paddingBottom && css`paddingBottom: ${applyCssWithUnit(paddingBottom)};`}
+    ${paddingLeft && css`paddingLeft: ${applyCssWithUnit(paddingLeft)};`}
+    ${margin && css`margin: ${applyCssWithUnit(margin)};`}
+    ${marginTop && css`marginTop: ${applyCssWithUnit(marginTop)};`}
+    ${marginRight && css`marginRight: ${applyCssWithUnit(marginRight)};`}
+    ${marginBottom && css`marginBottom: ${applyCssWithUnit(marginBottom)};`}
+    ${marginLeft && css`marginLeft: ${applyCssWithUnit(marginLeft)};`}
+    ${textAlign && css`textAlign: ${textAlign};`}
+    ${left && css`margin-right: auto;`}
+    ${right && css`margin-left: auto;`}
+    ${centered && css`margin-left: auto; margin-right: auto;`}
+  `}
 `;
 
 Layout.propTypes = {
