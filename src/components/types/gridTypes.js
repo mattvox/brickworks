@@ -1,7 +1,13 @@
-import { number, oneOf } from 'prop-types';
+import { bool, number, oneOf } from 'prop-types';
 
 export default {
   columns: number,
+  padded: bool,
+  xs: number,
+  sm: number,
+  md: number,
+  lg: number,
+  xl: number,
   fwrap: oneOf(['nowrap', 'wrap', 'wrap-reverse', 'initial', 'inherit']),
   direction: oneOf([
     'row',

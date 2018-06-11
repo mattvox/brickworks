@@ -12,24 +12,3 @@ export const Row = styled(Grid)`
 `;
 
 export default Row;
-
-/* Additional props / will support? / function
-* as - supported / renders el as another tag
-* children - supported / allows passed children to be rendered
-* columns - supported / create columns, actually sets flex/flex-basis
-* textAlign - supported / sets text alignment of children
-* className - supported / concat additional class names
-* left - supported / sets margin auto
-* right - supported / sets margin auto
-* centered - supported / sets margin auto
-
-* BREAKPOINTS SETTINGS ONLY
-* only - should support / only renders at specific breakpoint
-
-* stretched - maybe / allows contents to take up entire grid height
-* verticalAlign - maybe / renames align-items or align-content???
-
-* color - no support / allows row to be colored
-* divided - no support / places dividers in between columns
-* reversed - no support / allows items to reverse order at certain breakpoints
-*/

@@ -4,7 +4,8 @@ import applyCssWithUnit from '../utils/applyCssWithUnit';
 import { layoutTypes } from './types';
 
 // prettier-ignore
-const Layout = styled.div`
+const Layout = styled.div.attrs({ className: ({ className }) => className || '' })`
+  box-sizing: border-box;
   ${({
     padding,
     paddingTop,
@@ -20,22 +21,34 @@ const Layout = styled.div`
     left,
     right,
     centered,
+    width,
+    maxWidth,
+    minWidth,
+    height,
+    maxHeight,
+    minHeight,
   }) => css`
-    ${padding && css`padding: ${applyCssWithUnit(padding)};`}
-    ${paddingTop && css`paddingTop: ${applyCssWithUnit(paddingTop)};`}
-    ${paddingRight && css`paddingRight: ${applyCssWithUnit(paddingRight)};`}
-    ${paddingBottom && css`paddingBottom: ${applyCssWithUnit(paddingBottom)};`}
-    ${paddingLeft && css`paddingLeft: ${applyCssWithUnit(paddingLeft)};`}
-    ${margin && css`margin: ${applyCssWithUnit(margin)};`}
-    ${marginTop && css`marginTop: ${applyCssWithUnit(marginTop)};`}
-    ${marginRight && css`marginRight: ${applyCssWithUnit(marginRight)};`}
-    ${marginBottom && css`marginBottom: ${applyCssWithUnit(marginBottom)};`}
-    ${marginLeft && css`marginLeft: ${applyCssWithUnit(marginLeft)};`}
-    ${textAlign && css`textAlign: ${textAlign};`}
-    ${left && css`margin-right: auto;`}
+  ${left && css`margin-right: auto;`}
     ${right && css`margin-left: auto;`}
-    ${centered && css`margin-left: auto; margin-right: auto;`}
-  `}
+    ${centered && css`margin-left: auto;margin-right: auto;`}
+    ${padding && css`padding: ${applyCssWithUnit(padding)};`}
+    ${paddingTop && css`padding-top: ${applyCssWithUnit(paddingTop)};`}
+    ${paddingRight && css`padding-right: ${applyCssWithUnit(paddingRight)};`}
+    ${paddingBottom && css`padding-bottom: ${applyCssWithUnit(paddingBottom)};`}
+    ${paddingLeft && css`padding-left: ${applyCssWithUnit(paddingLeft)};`}
+    ${margin && css`margin: ${applyCssWithUnit(margin)};`}
+    ${marginTop && css`margin-top: ${applyCssWithUnit(marginTop)};`}
+    ${marginRight && css`margin-right: ${applyCssWithUnit(marginRight)};`}
+    ${marginBottom && css`margin-bottom: ${applyCssWithUnit(marginBottom)};`}
+    ${marginLeft && css`margin-left: ${applyCssWithUnit(marginLeft)};`}
+    ${textAlign && css`text-align: ${textAlign};`}
+    ${width && css`width: ${applyCssWithUnit(width)};`}
+    ${minWidth && css`min-width: ${applyCssWithUnit(minWidth)};`}
+    ${maxWidth && css`max-width: ${applyCssWithUnit(maxWidth)};`}
+    ${height && css`height: ${applyCssWithUnit(height)};`}
+    ${minHeight && css`min-height: ${applyCssWithUnit(minHeight)};`}
+    ${maxHeight && css`max-height: ${applyCssWithUnit(maxHeight)};`}
+  `};
 `;
 
 Layout.propTypes = {

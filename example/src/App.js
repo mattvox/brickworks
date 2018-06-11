@@ -7,7 +7,7 @@ const Segment = styled.div`
   border: 1px blue solid;
   text-align: center;
   padding: 20px;
-  margin: 20px;
+  ${'' /* margin: 20px; */};
 `;
 
 // Col.section = Col.withComponent('section');
@@ -16,8 +16,27 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Grid>
-          <Row columns={3}>
+        <Grid
+          margin="1em"
+          style={{ border: '1px solid green' }}
+          maxWidth={1200}
+          centered
+          columns={2}
+          padded
+        >
+          <Col>
+            <Segment>Test</Segment>
+          </Col>
+          <Col>
+            <Segment>Test</Segment>
+          </Col>
+          <Row
+            xs={1}
+            sm={3}
+            xl={3}
+            justifyContent="space-around"
+            className="row"
+          >
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -28,108 +47,35 @@ export default class App extends Component {
               <Segment>3</Segment>
             </Col>
           </Row>
-        </Grid>
-        {/* <Grid>
-          <Row as="section">
-            <Col flex={{ grow: 0, shrink: 1, basis: 50 }}>
-              <Segment>1/2</Segment>
+          <Row>
+            <Col flex={1} className="flexing-hard">
+              <Segment>1</Segment>
             </Col>
-            <Col flex={{ grow: 0, shrink: 1, basis: 50 }}>
-              <Segment>1/2*</Segment>
+            <Col>
+              <Segment>2</Segment>
             </Col>
           </Row>
           <Row columns={3}>
             <Col>
-              <Segment>1/3</Segment>
+              <Segment>1</Segment>
             </Col>
             <Col>
-              <Segment>1/3</Segment>
+              <Segment>2</Segment>
             </Col>
             <Col>
-              <Segment>1/3*</Segment>
-            </Col>
-          </Row>
-          <Row columns={4}>
-            <Col>
-              <Segment>1/4</Segment>
+              <Segment>3</Segment>
             </Col>
             <Col>
-              <Segment>1/4</Segment>
+              <Segment>4</Segment>
             </Col>
             <Col>
-              <Segment>1/4</Segment>
+              <Segment>5</Segment>
             </Col>
             <Col>
-              <Segment>1/4*</Segment>
-            </Col>
-          </Row>
-          <Row columns={5}>
-            <Col>
-              <Segment>1/5</Segment>
-            </Col>
-            <Col>
-              <Segment>1/5</Segment>
-            </Col>
-            <Col>
-              <Segment>1/5</Segment>
-            </Col>
-            <Col>
-              <Segment>1/5</Segment>
-            </Col>
-            <Col>
-              <Segment>1/5*</Segment>
+              <Segment>6</Segment>
             </Col>
           </Row>
         </Grid>
-        <Grid justifyContent="space-between" padding="0 1em">
-          <Col basis={20} padding={0}>
-            <Segment>Grid without Row 20%</Segment>
-          </Col>
-          <Col basis={20} padding={0}>
-            <Segment>Grid without Row 20%</Segment>
-          </Col>
-          <Col basis={20} padding={0}>
-            <Segment>Grid without Row 20%</Segment>
-          </Col>
-          <Col basis={20} padding={0}>
-            <Segment>Grid without Row 20%</Segment>
-          </Col>
-        </Grid>
-        <Grid justifyContent="space-around" padding="0 1em">
-          <Col basis={25} padding={0}>
-            <Segment>Grid without Row 25%</Segment>
-          </Col>
-          <Col basis={40} padding={0}>
-            <Segment>Grid without Row 40%</Segment>
-          </Col>
-          <Col basis={25} padding={0}>
-            <Segment>Grid without Row 25%</Segment>
-          </Col>
-        </Grid>
-        <Grid>
-          <Row>
-            <Col>
-              <Segment>Grid without Row 30%</Segment>
-            </Col>
-            <Col>
-              <Segment>Grid without Row 30%</Segment>
-            </Col>
-            <Col>
-              <Segment>Grid without Row 30%</Segment>
-            </Col>
-          </Row>
-          <Col grid basis="100%" justify="space-between" columns={3}>
-            <Col style={{ paddingLeft: 0 }}>
-              <Segment>1/3</Segment>
-            </Col>
-            <Col>
-              <Segment>1/3</Segment>
-            </Col>
-            <Col style={{ paddingRight: 0 }}>
-              <Segment>1/3</Segment>
-            </Col>
-          </Col>
-        </Grid> */}
       </div>
     );
   }
