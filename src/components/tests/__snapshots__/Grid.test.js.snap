@@ -29,6 +29,14 @@ exports[`<Grid /> should match snapshot 1`] = `
 }
 
 <styled.div
+  breakpoints={
+    Object {
+      "lg": "992px",
+      "md": "768px",
+      "sm": "576px",
+      "xl": "1200px",
+    }
+  }
   className="c0"
 />
 `;

@@ -25,6 +25,14 @@ exports[`<Row /> should match snapshot 1`] = `
 }
 
 <Styled(styled.div)
+  breakpoints={
+    Object {
+      "lg": "992px",
+      "md": "768px",
+      "sm": "576px",
+      "xl": "1200px",
+    }
+  }
   className="c0"
 />
 `;
