@@ -28,9 +28,6 @@ const Layout = styled.div.attrs({ className: ({ className }) => className || '' 
     maxHeight,
     minHeight,
   }) => css`
-  ${left && css`margin-right: auto;`}
-    ${right && css`margin-left: auto;`}
-    ${centered && css`margin-left: auto;margin-right: auto;`}
     ${padding && css`padding: ${applyCssWithUnit(padding)};`}
     ${paddingTop && css`padding-top: ${applyCssWithUnit(paddingTop)};`}
     ${paddingRight && css`padding-right: ${applyCssWithUnit(paddingRight)};`}
@@ -48,6 +45,9 @@ const Layout = styled.div.attrs({ className: ({ className }) => className || '' 
     ${height && css`height: ${applyCssWithUnit(height)};`}
     ${minHeight && css`min-height: ${applyCssWithUnit(minHeight)};`}
     ${maxHeight && css`max-height: ${applyCssWithUnit(maxHeight)};`}
+    ${left && css`margin-right: auto;`}
+    ${right && css`margin-left: auto;`}
+    ${centered && css`margin-left: auto;margin-right: auto;`}
   `};
 `;
 

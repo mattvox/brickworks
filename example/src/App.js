@@ -20,9 +20,9 @@ export default class App extends Component {
           margin="1em"
           style={{ border: '1px solid green' }}
           maxWidth={1200}
-          centered
           columns={2}
           padded
+          centered
         >
           <Col>
             <Segment>Test</Segment>
