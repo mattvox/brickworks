@@ -9,7 +9,8 @@ export default function(flex) {
       `;
     case 'object':
       return css`
-        flex: ${flex.grow} ${flex.shrink} ${applyCssWithUnit(flex.basis, '%')};
+        flex: ${flex.grow || 0} ${flex.shrink || 1}
+          ${applyCssWithUnit(flex.basis, '%') || 'auto'};
       `;
     default:
       return 0;
