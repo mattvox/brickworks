@@ -21,10 +21,8 @@ const Layout = styled.div.attrs({ className: ({ className }) => className || '' 
     left,
     right,
     centered,
-    width,
     maxWidth,
     minWidth,
-    height,
     maxHeight,
     minHeight,
   }) => css`
@@ -39,10 +37,8 @@ const Layout = styled.div.attrs({ className: ({ className }) => className || '' 
     ${marginBottom && css`margin-bottom: ${applyCssWithUnit(marginBottom)};`}
     ${marginLeft && css`margin-left: ${applyCssWithUnit(marginLeft)};`}
     ${textAlign && css`text-align: ${textAlign};`}
-    ${width && css`width: ${applyCssWithUnit(width)};`}
     ${minWidth && css`min-width: ${applyCssWithUnit(minWidth)};`}
     ${maxWidth && css`max-width: ${applyCssWithUnit(maxWidth)};`}
-    ${height && css`height: ${applyCssWithUnit(height)};`}
     ${minHeight && css`min-height: ${applyCssWithUnit(minHeight)};`}
     ${maxHeight && css`max-height: ${applyCssWithUnit(maxHeight)};`}
     ${left && css`margin-right: auto;`}

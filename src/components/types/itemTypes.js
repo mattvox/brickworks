@@ -14,7 +14,7 @@ export default {
   grow: number,
   shrink: number,
   basis: cssWithUnit,
-  align: oneOf([
+  alignSelf: oneOf([
     'auto',
     'flex-start',
     'flex-end',

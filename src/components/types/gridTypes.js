@@ -1,4 +1,6 @@
-import { bool, number, oneOf } from 'prop-types';
+import { bool, number, string, shape, oneOf } from 'prop-types';
+
+// add custom prop type for media breakpoints
 
 export default {
   columns: number,
@@ -8,16 +10,21 @@ export default {
   md: number,
   lg: number,
   xl: number,
-  fwrap: oneOf(['nowrap', 'wrap', 'wrap-reverse', 'initial', 'inherit']),
-  direction: oneOf([
+  breakpoints: shape({
+    sm: string.isRequired,
+    md: string.isRequired,
+    lg: string.isRequired,
+    xl: string.isRequired,
+  }),
+  order: number,
+  flow: oneOf([
     'row',
     'row-reverse',
     'column',
     'column-reverse',
-    'initial',
-    'inherit',
-  ]),
-  flow: oneOf([
+    'nowrap',
+    'wrap',
+    'wrap-reverse',
     'row nowrap',
     'row wrap',
     'row wrap-reverse',
@@ -33,7 +40,7 @@ export default {
     'initial',
     'inherit',
   ]),
-  justifyContent: oneOf([
+  justify: oneOf([
     'flex-start',
     'flex-end',
     'center',
@@ -42,7 +49,7 @@ export default {
     'initial',
     'inherit',
   ]),
-  alignContent: oneOf([
+  align: oneOf([
     'flex-start',
     'flex-end',
     'center',
@@ -52,7 +59,7 @@ export default {
     'initial',
     'inherit',
   ]),
-  alignItems: oneOf([
+  items: oneOf([
     'flex-start',
     'flex-end',
     'center',

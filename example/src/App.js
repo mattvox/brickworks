@@ -7,7 +7,6 @@ const Segment = styled.div`
   border: 1px blue solid;
   text-align: center;
   padding: 20px;
-  ${'' /* margin: 20px; */};
 `;
 
 // Col.section = Col.withComponent('section');
@@ -16,7 +15,80 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Grid
+        <Grid centered style={{ border: '1px solid green' }} padded>
+          <Col>
+            <Segment>No Row</Segment>
+          </Col>
+          <Col>
+            <Segment>Just Cols</Segment>
+          </Col>
+          <Row columns={3}>
+            <Col>
+              <Segment>1</Segment>
+            </Col>
+            <Col>
+              <Segment>2</Segment>
+            </Col>
+            <Col>
+              <Segment>3</Segment>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Segment>1</Segment>
+            </Col>
+            <Col>
+              <Segment>2</Segment>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Segment>1</Segment>
+            </Col>
+            <Col>
+              <Segment>2</Segment>
+            </Col>
+            <Col>
+              <Segment>3</Segment>
+            </Col>
+            <Col>
+              <Segment>4</Segment>
+            </Col>
+            <Col>
+              <Segment>5</Segment>
+            </Col>
+            <Col>
+              <Segment>6</Segment>
+            </Col>
+          </Row>
+          <Row columns={2}>
+            <Col grid>
+              <Row columns={4}>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+              </Row>
+            </Col>
+            <Col grid columns={2}>
+              <Col>
+                <Segment>Only Cols</Segment>
+              </Col>
+              <Col>
+                <Segment>Only Cols</Segment>
+              </Col>
+            </Col>
+          </Row>
+        </Grid>
+        {/* <Grid
           margin="1em"
           style={{ border: '1px solid green' }}
           maxWidth={1200}
@@ -75,7 +147,7 @@ export default class App extends Component {
               <Segment>6</Segment>
             </Col>
           </Row>
-        </Grid>
+        </Grid> */}
       </div>
     );
   }

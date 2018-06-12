@@ -23,10 +23,8 @@ export default {
   left: bool,
   right: bool,
   centered: bool,
-  width: cssWithUnit,
   maxWidth: cssWithUnit,
   minWidth: cssWithUnit,
-  height: cssWithUnit,
   maxHeight: cssWithUnit,
   minHeight: cssWithUnit,
 };

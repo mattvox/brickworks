@@ -7,20 +7,20 @@ import Col from './Col';
 // prettier-ignore
 export const gridStyles = css`
   display: flex;
-  flex-wrap: ${({ fwrap }) => fwrap || 'nowrap'};
-  flex-direction: ${({ direction }) => direction || 'row'};
-  justify-content: ${({ justifyContent }) => justifyContent || 'flex-start'};
-  align-content: ${({ alignContent }) => alignContent || 'stretch'};
-  align-items: ${({ alignItems }) => alignItems || 'stretch'};
+  flex-flow: ${({ flow }) => flow || 'row wrap'};
+  justify-content: ${({ justify }) => justify || 'flex-start'};
+  align-content: ${({ align }) => align || 'stretch'};
+  align-items: ${({ items }) => items || 'stretch'};
 
-  ${({ flow, padded, columns, xs, sm, md, lg, xl }) => css`
+  ${({ flow, padded, columns, xs, sm, md, lg, xl, breakpoints }) => css`
     ${flow && css`flex-flow: ${flow};`}
 
     ${padded && css`
       padding-right: 1em;
       padding-bottom: 1em;
       & ${Col} {
-        padding: 1em 0 0 1em;
+        padding-top: 1em;
+        padding-left: 1em;
       }
       > ${Grid} {
         padding-right: 0;
@@ -43,7 +43,7 @@ export const gridStyles = css`
     `}
 
     ${sm && css`
-      @media screen and (min-width: 576px) {
+      @media screen and (min-width: ${breakpoints.sm}) {
         > ${Col} {
           flex: 0 1 ${100 / sm}%;
         }
@@ -51,7 +51,7 @@ export const gridStyles = css`
     `}
 
     ${md && css`
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: ${breakpoints.md}) {
         > ${Col} {
           flex: 0 1 ${100 / md}%;
         }
@@ -59,7 +59,7 @@ export const gridStyles = css`
     `}
 
     ${lg && css`
-      @media screen and (min-width: 992px) {
+      @media screen and (min-width: ${breakpoints.lg}) {
         > ${Col} {
           flex: 0 1 ${100 / lg}%;
         }
@@ -67,7 +67,7 @@ export const gridStyles = css`
     `}
 
     ${xl && css`
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: ${breakpoints.xl}) {
         > ${Col} {
           flex: 0 1 ${100 / xl}%;
         }
@@ -79,7 +79,6 @@ export const gridStyles = css`
 // prettier-ignore
 const Grid = Layout.extend`
   ${gridStyles}
-  flex-wrap: ${({ fwrap }) => fwrap || 'wrap'};
 `;
 
 Grid.propTypes = {
