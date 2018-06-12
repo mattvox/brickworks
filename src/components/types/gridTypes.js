@@ -46,6 +46,7 @@ export default {
     'center',
     'space-between',
     'space-around',
+    'space-evenly',
     'initial',
     'inherit',
   ]),
