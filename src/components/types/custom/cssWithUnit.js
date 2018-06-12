@@ -1,4 +1,4 @@
-function isValid(value) {
+export function isValid(value) {
   switch (typeof value) {
     case 'undefined':
     case 'number':
