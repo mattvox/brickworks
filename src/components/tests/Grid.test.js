@@ -8,57 +8,70 @@ import Grid from '../Grid';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+// Helpers
+const testStyle = (wrapper, style, value) =>
+  it(`should have style - ${style}: ${value}`, () => {
+    expect(wrapper.find('div')).toHaveStyleRule(style, value);
+  });
+
+// Tests
 describe('<Grid />', () => {
   const wrapper = shallow(<Grid />);
-
-  const wrapperWithProps = shallow(
-    <Grid
-      justify="flex-start"
-      align="stretch"
-      items="stretch"
-      badProp1="this is a bad prop"
-      badProp2="this is another bad prop"
-      columns={1}
-    />,
-  );
-
-  // const Section = Grid.withComponent('section');
-  // const wrapperAsSection = shallow(<Section />);
-
-  // const expectedProps = ['onClick', 'children', 'style', 'type', 'className'];
 
   it('should render correctly', () => {
     expect(wrapper.find('div').exists()).toBe(true);
   });
 
-  it('should match snapshot', () => {
-    expect(shallowToJson(wrapper)).toMatchSnapshot();
+  describe('<Grid /> with default props/settings', () => {
+    const expectedStyleList = [
+      { style: 'display', value: 'flex' },
+      { style: 'flex-flow', value: 'row wrap' },
+      { style: 'justify-content', value: 'flex-start' },
+      { style: 'align-content', value: 'stretch' },
+      { style: 'align-items', value: 'stretch' },
+    ];
+
+    expectedStyleList.forEach(({ style, value }) => {
+      return testStyle(wrapper, style, value);
+    });
+
+    it('should match snapshot', () => {
+      expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
   });
 
-  it('should match snapshot with props', () => {
-    expect(shallowToJson(wrapperWithProps)).toMatchSnapshot();
-  });
-
-  it('should have default style - display: flex', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('display', 'flex');
-  });
-
-  it('should have default style - flex-flow: row wrap', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('flex-flow', 'row wrap');
-  });
-
-  it('should have default style - justify-content: flex-start', () => {
-    expect(wrapper.find('div')).toHaveStyleRule(
-      'justify-content',
-      'flex-start',
+  describe('<Grid /> with added props', () => {
+    const wrapperWithProps = shallow(
+      <Grid
+        flow="column nowrap"
+        justify="center"
+        align="space-around"
+        items="flex-end"
+        badProp1="this is a bad prop"
+        badProp2="this is another bad prop"
+        padded
+      />,
     );
+
+    const expectedStyleList = [
+      { style: 'flex-flow', value: 'column nowrap' },
+      { style: 'justify-content', value: 'center' },
+      { style: 'align-content', value: 'space-around' },
+      { style: 'align-items', value: 'flex-end' },
+      { style: 'padding-right', value: '1em' },
+      { style: 'padding-bottom', value: '1em' },
+    ];
+
+    expectedStyleList.forEach(({ style, value }) => {
+      return testStyle(wrapperWithProps, style, value);
+    });
+
+    it('should match snapshot with props', () => {
+      expect(shallowToJson(wrapperWithProps)).toMatchSnapshot();
+    });
   });
 
-  it('should have default style - align-content: stretch', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('align-content', 'stretch');
-  });
-
-  it('should have default style - align-items: stretch', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('align-items', 'stretch');
-  });
+  // const Section = Grid.withComponent('section');
+  // const wrapperAsSection = shallow(<Section />);
+  // const expectedProps = ['onClick', 'children', 'style', 'type', 'className'];
 });

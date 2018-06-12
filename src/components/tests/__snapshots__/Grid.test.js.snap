@@ -1,35 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Grid /> should match snapshot 1`] = `
-.c0 {
+exports[`<Grid /> <Grid /> with added props should match snapshot with props 1`] = `
+.c1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: space-around;
+  -ms-flex-line-pack: space-around;
+  align-content: space-around;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.c1 .sc-bwzfXH {
+  padding-top: 1em;
+  padding-left: 1em;
+}
+
+.c1 > .c0 {
+  padding-right: 0;
+}
+
+not:.c0 .c1 {
+  padding-bottom: 0;
 }
 
 <div
-  className="c0"
+  className="c0 c1"
 />
 `;
 
-exports[`<Grid /> should match snapshot with props 1`] = `
-.c0 {
+exports[`<Grid /> <Grid /> with default props/settings should match snapshot 1`] = `
+.c1 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -51,13 +66,15 @@ exports[`<Grid /> should match snapshot with props 1`] = `
   align-items: stretch;
 }
 
-.c0 > .sc-bwzfXH {
-  -webkit-flex: 0 1 100%;
-  -ms-flex: 0 1 100%;
-  flex: 0 1 100%;
+.hoTrZL > .c0 {
+  padding-right: 0;
+}
+
+not:.c0 .hoTrZL {
+  padding-bottom: 0;
 }
 
 <div
-  className="c0"
+  className="c0 c1"
 />
 `;

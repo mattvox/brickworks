@@ -12,9 +12,7 @@ export const gridStyles = css`
   align-content: ${({ align }) => align || 'stretch'};
   align-items: ${({ items }) => items || 'stretch'};
 
-  ${({ flow, padded, columns, xs, sm, md, lg, xl, breakpoints }) => css`
-    ${flow && css`flex-flow: ${flow};`}
-
+  ${({ padded, columns, xs, sm, md, lg, xl, breakpoints }) => css`
     ${padded && css`
       padding-right: 1em;
       padding-bottom: 1em;
