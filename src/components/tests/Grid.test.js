@@ -1,7 +1,8 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import styled from 'styled-components';
 import 'jest-styled-components';
 
 import Grid from '../Grid';
@@ -31,12 +32,12 @@ describe('<Grid />', () => {
       { style: 'align-items', value: 'stretch' },
     ];
 
-    expectedStyleList.forEach(({ style, value }) => {
-      return testStyle(wrapper, style, value);
-    });
-
     it('should match snapshot', () => {
       expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+
+    expectedStyleList.forEach(({ style, value }) => {
+      return testStyle(wrapper, style, value);
     });
   });
 
@@ -62,12 +63,12 @@ describe('<Grid />', () => {
       { style: 'padding-bottom', value: '1em' },
     ];
 
-    expectedStyleList.forEach(({ style, value }) => {
-      return testStyle(wrapperWithProps, style, value);
-    });
-
     it('should match snapshot with props', () => {
       expect(shallowToJson(wrapperWithProps)).toMatchSnapshot();
+    });
+
+    expectedStyleList.forEach(({ style, value }) => {
+      return testStyle(wrapperWithProps, style, value);
     });
   });
 
