@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
 import { gridTypes } from './types';
 import Layout from './Layout';
@@ -77,7 +77,7 @@ export const gridStyles = css`
 `;
 
 // prettier-ignore
-const Grid = styled(Layout)`
+const Grid = Layout.extend`
   ${gridStyles}
   flex-wrap: ${({ fwrap }) => fwrap || 'wrap'};
 `;

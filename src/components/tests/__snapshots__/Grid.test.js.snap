@@ -2,6 +2,7 @@
 
 exports[`<Grid /> should match snapshot 1`] = `
 .c0 {
+  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -28,15 +29,7 @@ exports[`<Grid /> should match snapshot 1`] = `
   flex-wrap: wrap;
 }
 
-<styled.div
-  breakpoints={
-    Object {
-      "lg": "992px",
-      "md": "768px",
-      "sm": "576px",
-      "xl": "1200px",
-    }
-  }
+<div
   className="c0"
 />
 `;

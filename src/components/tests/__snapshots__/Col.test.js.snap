@@ -2,12 +2,13 @@
 
 exports[`<Col /> should match snapshot 1`] = `
 .c0 {
+  box-sizing: border-box;
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
 }
 
-<styled.div
+<div
   className="c0"
 />
 `;

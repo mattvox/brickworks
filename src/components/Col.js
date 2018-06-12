@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
 import applyFlex from '../utils/applyFlex';
 import { gridStyles } from './Grid';
@@ -6,7 +6,7 @@ import { itemTypes } from './types';
 import Layout from './Layout';
 
 // prettier-ignore
-export const Col = styled(Layout)`
+export const Col = Layout.extend`
   flex: 0 1 auto;
   ${({ flex, grow, shrink, basis, order, align, grid }) => css`
     ${flex && applyFlex(flex)}

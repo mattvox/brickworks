@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import Grid from './Grid';
 
 // prettier-ignore
-export const Row = styled(Grid)`
+export const Row = Grid.extend`
   flex: 0 1 100%;
   flex-wrap: ${({ fwrap }) => fwrap || 'wrap'};
   flex-direction: ${({ direction }) => direction || 'inherit'};
