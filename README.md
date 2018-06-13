@@ -60,9 +60,9 @@ class Example extends Component {
 
 Grid is a container component, typically managing a combination of rows and columns.
 
-#### Prop | Default | Type | Description |
+| Prop | Default | Type | Description |
+| ---- | ------- | ---- | ----------- |
 
-| ---------------|----------------|---------------|---------------------|
 
 ## `<Row />`
 
