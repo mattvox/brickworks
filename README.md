@@ -60,9 +60,21 @@ class Example extends Component {
 
 Grid is a container component, typically managing a combination of rows and columns.
 
-| Prop | Default | Type | Description |
-| ---- | ------- | ---- | ----------- |
-
+| Prop          | Default      | Type      | Description |
+| ------------- | ------------ | --------- | ----------- |
+| `flow`        | `row wrap`   | enum      |
+| `justify`     | `flex-start` | enum      |
+| `align`       | `stretch`    | enum      |
+| `items`       | `stretch`    | enum      |
+| `childFlex`   |              | FIX LATER |
+| `padded`      |              |           |
+| `columns`     |              |           |
+| `xs`          |              |           |
+| `sm`          |              |           |
+| `md`          |              |           |
+| `lg`          |              |           |
+| `xl`          |              |           |
+| `breakpoints` |              | object    |
 
 ## `<Row />`
 
