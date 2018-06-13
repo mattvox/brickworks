@@ -17,6 +17,24 @@ exports[`<Layout /> with added props - 1st set should match snapshot with props 
 />
 `;
 
+exports[`<Layout /> with added props - 2nd set should match snapshot with props 1`] = `
+.c0 {
+  box-sizing: border-box;
+  padding-top: 40px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  margin-top: 2px;
+  margin-right: 4px;
+  margin-bottom: 6px;
+  margin-left: 8px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`<Layout /> with default props/settings should match snapshot 1`] = `
 .c0 {
   box-sizing: border-box;
