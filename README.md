@@ -58,9 +58,15 @@ class Example extends Component {
 
 ## `<Grid />`
 
-Grid is a container component.
+Grid is a container component, typically managing a combination of rows and columns.
 
-#### Props
+## `<Row />`
+
+Grid is a container component, typically managing a combination of rows and columns.
+
+## `<Col />`
+
+Grid is a container component, typically managing a combination of rows and columns.
 
 ## License
 
