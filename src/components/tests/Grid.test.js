@@ -1,20 +1,17 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import { css } from 'styled-components';
+import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 
+import testStyle from './helpers/testStyle';
 import Grid from '../Grid';
+import Col from '../Col';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-// Helpers
-const testStyle = (wrapper, style, value) =>
-  it(`should have style - ${style}: ${value}`, () => {
-    expect(wrapper.find('div')).toHaveStyleRule(style, value);
-  });
-
-// Tests
 describe('<Grid />', () => {
   const wrapper = shallow(<Grid />);
 
@@ -71,7 +68,91 @@ describe('<Grid />', () => {
     });
   });
 
-  // const Section = Grid.withComponent('section');
-  // const wrapperAsSection = shallow(<Section />);
-  // const expectedProps = ['onClick', 'children', 'style', 'type', 'className'];
+  describe('<Grid /> passes styles down to children columns', () => {
+    const wrapper = mount(
+      <Grid padded>
+        <Col>Hello</Col>
+      </Grid>,
+    );
+
+    Col.displayName = 'Col';
+
+    it('should match snapshot with props', () => {
+      expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+
+    it(`should pass padding top and left when padded prop is present`, () => {
+      const tree = renderer
+        .create(
+          <Grid padded>
+            <Col />
+          </Grid>,
+        )
+        .toJSON();
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('padding-top', '1em', {
+        modifier: css`${Col}`,
+      });
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('padding-left', '1em', {
+        modifier: css`${Col}`,
+      });
+    });
+
+    it(`should pass flex when the columns prop is present`, () => {
+      const tree = renderer
+        .create(
+          <Grid columns={2}>
+            <Col />
+          </Grid>,
+        )
+        .toJSON();
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('flex', '0 1 50%', {
+        modifier: css`> ${Col}`,
+      });
+    });
+
+    it(`should pass flex and adjust flex-basis based on media queries when passed xs, sm, md, lg, and xl props`, () => {
+      const tree = renderer
+        .create(
+          <Grid xs={4} sm={1} md={2} lg={4} xl={10}>
+            <Col />
+          </Grid>,
+        )
+        .toJSON();
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('flex', '0 1 25%', {
+        modifier: css`> ${Col}`,
+      });
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('flex', '0 1 100%', {
+        media: 'screen and (min-width: 576px)',
+        modifier: css`> ${Col}`,
+      });
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('flex', '0 1 50%', {
+        media: 'screen and (min-width: 768px)',
+        modifier: css`> ${Col}`,
+      });
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('flex', '0 1 25%', {
+        media: 'screen and (min-width: 992px)',
+        modifier: css`> ${Col}`,
+      });
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('flex', '0 1 10%', {
+        media: 'screen and (min-width: 1200px)',
+        modifier: css`> ${Col}`,
+      });
+    });
+  });
 });

@@ -1,6 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Col /> should match snapshot 1`] = `
+exports[`<Layout /> with added props - 1st set should match snapshot with props 1`] = `
+.c0 {
+  box-sizing: border-box;
+  padding: 30px;
+  margin: 2px;
+  text-align: center;
+  min-width: 500px;
+  max-width: 1000px;
+  min-height: 600px;
+  max-height: 1100px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`<Layout /> with default props/settings should match snapshot 1`] = `
 .c0 {
   box-sizing: border-box;
 }

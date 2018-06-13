@@ -1,5 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Grid /> <Grid /> passes styles down to children columns should match snapshot with props 1`] = `
+.c3 {
+  box-sizing: border-box;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+}
+
+.QApzI .c2 {
+  padding-top: 1em;
+  padding-left: 1em;
+}
+
+.QApzI > .c0 {
+  padding-right: 0;
+}
+
+not:.c0 .QApzI {
+  padding-bottom: 0;
+}
+
+.c1 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+.c1 .c2 {
+  padding-top: 1em;
+  padding-left: 1em;
+}
+
+.c1 > .c0 {
+  padding-right: 0;
+}
+
+not:.c0 .c1 {
+  padding-bottom: 0;
+}
+
+<styled.div
+  breakpoints={
+    Object {
+      "lg": "992px",
+      "md": "768px",
+      "sm": "576px",
+      "xl": "1200px",
+    }
+  }
+  padded={true}
+>
+  <div
+    className="c0 c1"
+  >
+    <Col>
+      <div
+        className="c2 c3"
+      >
+        Hello
+      </div>
+    </Col>
+  </div>
+</styled.div>
+`;
+
 exports[`<Grid /> <Grid /> with added props should match snapshot with props 1`] = `
 .c1 {
   box-sizing: border-box;
@@ -38,6 +121,14 @@ not:.c0 .c1 {
   padding-bottom: 0;
 }
 
+.iagNia > .c0 {
+  padding-right: 0;
+}
+
+not:.c0 .iagNia {
+  padding-bottom: 0;
+}
+
 <div
   className="c0 c1"
 />
@@ -66,11 +157,19 @@ exports[`<Grid /> <Grid /> with default props/settings should match snapshot 1`]
   align-items: stretch;
 }
 
-.hoTrZL > .c0 {
+.QApzI > .c0 {
   padding-right: 0;
 }
 
-not:.c0 .hoTrZL {
+not:.c0 .QApzI {
+  padding-bottom: 0;
+}
+
+.iagNia > .c0 {
+  padding-right: 0;
+}
+
+not:.c0 .iagNia {
   padding-bottom: 0;
 }
 

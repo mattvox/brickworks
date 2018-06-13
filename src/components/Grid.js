@@ -16,7 +16,7 @@ export const gridStyles = css`
     ${padded && css`
       padding-right: 1em;
       padding-bottom: 1em;
-      & ${Col} {
+      ${Col} {
         padding-top: 1em;
         padding-left: 1em;
       }

@@ -1,6 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Col /> should match snapshot 1`] = `
+exports[`<Col /> with added props - 1st set should match snapshot with props 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-flex: 2 3 75%;
+  -ms-flex: 2 3 75%;
+  flex: 2 3 75%;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+<div
+  className="c0"
+  order={2}
+/>
+`;
+
+exports[`<Col /> with added props - 2nd set should match snapshot with props 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-box-flex: 5;
+  -webkit-flex-grow: 5;
+  -ms-flex-positive: 5;
+  flex-grow: 5;
+  -webkit-flex-shrink: 4;
+  -ms-flex-negative: 4;
+  flex-shrink: 4;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`<Col /> with default props/settings should match snapshot 1`] = `
 .c0 {
   box-sizing: border-box;
   -webkit-flex: 0 1 auto;
