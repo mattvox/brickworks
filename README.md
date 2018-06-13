@@ -60,21 +60,21 @@ class Example extends Component {
 
 Grid is a container component, typically managing a combination of rows and columns.
 
-| Prop          | Default      | Type      | Description                                                                                                                         |
-| ------------- | ------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `flow`        | `row wrap`   | enum      | Shorthand for flex-direction and flex-wrap, which define the container's axes. Enums: `row` `row-reverse` `column` `column-reverse` |
-| `justify`     | `flex-start` | enum      |
-| `align`       | `stretch`    | enum      |
-| `items`       | `stretch`    | enum      |
-| `childFlex`   |              | FIX LATER |
-| `padded`      |              |           |
-| `columns`     |              |           |
-| `xs`          |              |           |
-| `sm`          |              |           |
-| `md`          |              |           |
-| `lg`          |              |           |
-| `xl`          |              |           |
-| `breakpoints` |              | object    |
+| Prop          | Default      | Type   | Description                                                                                                                                                                                       |
+| ------------- | ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `flow`        | `row wrap`   | enum   | shorthand for flex-direction and flex-wrap, which define the container's axes. enums: `row` `row-reverse` `column` `column-reverse` `nowrap` `wrap` `wrap-reverse` `row nowrap` etc etc fix later |
+| `justify`     | `flex-start` | enum   | sets alignment of items along the main axis. enums: `flex-start` `flex-end` `center` `space-around` `space-between` `space-evenly`                                                                |
+| `align`       | `stretch`    | enum   | sets alignment of the container's lines along the cross-axis. enums: `flex-start` `flex-end` `center` `space-around` `space-between` `stretch`                                                    |
+| `items`       | `stretch`    | enum   | sets alignment of items along the cross-axis. enums: `flex-start` `flex-end` `center` `baseline` `stretch`                                                                                        |
+| `childFlex`   |              | FIX    |
+| `padded`      |              |        |
+| `columns`     |              |        |
+| `xs`          |              |        |
+| `sm`          |              |        |
+| `md`          |              |        |
+| `lg`          |              |        |
+| `xl`          |              |        |
+| `breakpoints` |              | object |
 
 ## `<Row />`
 
