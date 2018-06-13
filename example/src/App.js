@@ -6,7 +6,6 @@ import { Grid, Col, Row } from 'brickworks';
 
 const Segment = styled.div`
   border: 2px gray solid;
-  border-radius: 8px;
   text-align: center;
   padding: 20px;
 `;

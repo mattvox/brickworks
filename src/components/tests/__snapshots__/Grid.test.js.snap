@@ -8,16 +8,16 @@ exports[`<Grid /> <Grid /> passes styles down to children columns should match s
   flex: 0 1 auto;
 }
 
-.QApzI .c2 {
+.kepMFu .c2 {
   padding-top: 1em;
   padding-left: 1em;
 }
 
-.QApzI > .c0 {
+.kepMFu > .c0 {
   padding-right: 0;
 }
 
-not:.c0 .QApzI {
+not:.c0 .kepMFu {
   padding-bottom: 0;
 }
 
@@ -121,11 +121,11 @@ not:.c0 .c1 {
   padding-bottom: 0;
 }
 
-.iagNia > .c0 {
+.cSFbhn > .c0 {
   padding-right: 0;
 }
 
-not:.c0 .iagNia {
+not:.c0 .cSFbhn {
   padding-bottom: 0;
 }
 
@@ -157,19 +157,19 @@ exports[`<Grid /> <Grid /> with default props/settings should match snapshot 1`]
   align-items: stretch;
 }
 
-.QApzI > .c0 {
+.kepMFu > .c0 {
   padding-right: 0;
 }
 
-not:.c0 .QApzI {
+not:.c0 .kepMFu {
   padding-bottom: 0;
 }
 
-.iagNia > .c0 {
+.cSFbhn > .c0 {
   padding-right: 0;
 }
 
-not:.c0 .iagNia {
+not:.c0 .cSFbhn {
   padding-bottom: 0;
 }
 

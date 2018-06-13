@@ -93,11 +93,11 @@ Grid.defaultProps = {
   },
 };
 
+Grid.nav = Grid.withComponent('nav');
 Grid.aside = Grid.withComponent('aside');
 Grid.main = Grid.withComponent('main');
 Grid.header = Grid.withComponent('header');
 Grid.footer = Grid.withComponent('footer');
-Grid.nav = Grid.withComponent('nav');
 Grid.section = Grid.withComponent('section');
 
 export default Grid;
