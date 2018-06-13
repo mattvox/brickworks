@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import { Grid, Col, Row } from 'brickworks';
 
@@ -20,11 +19,19 @@ const Section = styled(Row.section)`
   }
 `;
 
+const Aside = Col.withComponent('aside');
+
+const StyledAside = styled(Aside)`
+  ${Segment} {
+    background-color: palevioletred;
+  }
+`;
+
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Main centered padded={2}>
+        <Main centered justify="space-evenly" padded>
           <Col>
             <Segment>No Row</Segment>
           </Col>
@@ -32,17 +39,17 @@ export default class App extends Component {
             <Segment>Just Cols</Segment>
           </Col>
           <Section columns={3}>
-            <Col>
+            <StyledAside>
               <Segment>1</Segment>
-            </Col>
-            <Col>
+            </StyledAside>
+            <StyledAside>
               <Segment>2</Segment>
-            </Col>
-            <Col>
+            </StyledAside>
+            <StyledAside>
               <Segment>3</Segment>
-            </Col>
+            </StyledAside>
           </Section>
-          <Row>
+          <Row columns={2} sm={1}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -50,7 +57,7 @@ export default class App extends Component {
               <Segment>2</Segment>
             </Col>
           </Row>
-          <Row>
+          <Row justify="space-evenly" childFlex={1}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -68,6 +75,44 @@ export default class App extends Component {
             </Col>
             <Col>
               <Segment>6</Segment>
+            </Col>
+          </Row>
+          <Row justify="space-evenly" childFlex={1}>
+            <Col>
+              <Segment>1</Segment>
+            </Col>
+            <Col>
+              <Segment>2</Segment>
+            </Col>
+            <Col>
+              <Segment>3</Segment>
+            </Col>
+            <Col>
+              <Segment>4</Segment>
+            </Col>
+            <Col>
+              <Segment>5</Segment>
+            </Col>
+            <Col>
+              <Segment>6</Segment>
+            </Col>
+            <Col>
+              <Segment>7</Segment>
+            </Col>
+            <Col>
+              <Segment>8</Segment>
+            </Col>
+            <Col>
+              <Segment>9</Segment>
+            </Col>
+            <Col>
+              <Segment>10</Segment>
+            </Col>
+            <Col>
+              <Segment>11</Segment>
+            </Col>
+            <Col>
+              <Segment>12</Segment>
             </Col>
           </Row>
           <Section columns={2}>

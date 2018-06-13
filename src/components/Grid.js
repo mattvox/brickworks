@@ -3,7 +3,8 @@ import { css } from 'styled-components';
 import applyCssWithUnit from '../utils/applyCssWithUnit';
 import { gridTypes } from './types';
 import Layout from './Layout';
-import Col from './Col';
+
+import media from '../utils/mediaTemplate';
 
 // prettier-ignore
 export const gridStyles = css`
@@ -13,70 +14,53 @@ export const gridStyles = css`
   align-content: ${({ align }) => align || 'stretch'};
   align-items: ${({ items }) => items || 'stretch'};
 
+  ${({ childFlex }) => css`> .brckwrx-col {flex: ${childFlex}}`};
+
   ${({ padded, columns, xs, sm, md, lg, xl, breakpoints }) => css`
     ${padded && css`
       padding-right: ${applyCssWithUnit(padded, 'em') || '1em'};
       padding-bottom: ${applyCssWithUnit(padded, 'em') || '1em'};
-      ${Col} {
+
+      .brckwrx-col {
         padding-top: ${applyCssWithUnit(padded, 'em') || '1em'};
         padding-left: ${applyCssWithUnit(padded, 'em') || '1em'};
-      }
-      > ${Grid} {
-        padding-right: 0;
-      }
-      not:${Grid} & {
-        padding-bottom: 0;
       }
     `}
 
     ${(columns || xs) && css`
-      > ${Col} {
+      > .brckwrx-col {
         flex: 0 1 ${100 / (columns || xs)}%;
       }
     `}
 
-    ${xs && css`
-      > ${Col} {
-        flex: 0 1 ${100 / xs}%;
+    ${sm && media(breakpoints).sm`
+      > .brckwrx-col {
+        flex: 0 1 ${100 / sm}%;
       }
     `}
 
-    ${sm && css`
-      @media screen and (min-width: ${breakpoints.sm}) {
-        > ${Col} {
-          flex: 0 1 ${100 / sm}%;
-        }
+    ${md && media(breakpoints).md`
+      > .brckwrx-col {
+        flex: 0 1 ${100 / md}%;
       }
     `}
 
-    ${md && css`
-      @media screen and (min-width: ${breakpoints.md}) {
-        > ${Col} {
-          flex: 0 1 ${100 / md}%;
-        }
+    ${lg && media(breakpoints).lg`
+      > .brckwrx-col {
+        flex: 0 1 ${100 / lg}%;
       }
     `}
 
-    ${lg && css`
-      @media screen and (min-width: ${breakpoints.lg}) {
-        > ${Col} {
-          flex: 0 1 ${100 / lg}%;
-        }
-      }
-    `}
-
-    ${xl && css`
-      @media screen and (min-width: ${breakpoints.xl}) {
-        > ${Col} {
-          flex: 0 1 ${100 / xl}%;
-        }
+    ${xl && media(breakpoints).xl`
+      > .brckwrx-col {
+        flex: 0 1 ${100 / xl}%;
       }
     `}
   `}
 `;
 
 // prettier-ignore
-const Grid = Layout.extend`
+const Grid = Layout.extend.attrs({ className: `brckwrx-grid` })`
   ${gridStyles}
 `;
 

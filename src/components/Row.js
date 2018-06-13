@@ -1,7 +1,7 @@
 import Grid from './Grid';
 
 // prettier-ignore
-export const Row = Grid.extend`
+export const Row = Grid.extend.attrs({ className: `brckwrx-row` })`
   flex: 0 1 100%;
   flex-flow: ${({ flow }) => flow || 'inherit'};
   justify-content: ${({ justify }) => justify || 'inherit'};
@@ -10,11 +10,11 @@ export const Row = Grid.extend`
   order: ${({ order }) => order || 0};
 `;
 
+Row.nav = Row.withComponent('nav');
 Row.aside = Row.withComponent('aside');
 Row.main = Row.withComponent('main');
 Row.header = Row.withComponent('header');
 Row.footer = Row.withComponent('footer');
-Row.nav = Row.withComponent('nav');
 Row.section = Row.withComponent('section');
 
 export default Row;
