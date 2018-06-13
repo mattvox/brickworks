@@ -19,7 +19,7 @@ describe('<Grid />', () => {
     expect(wrapper.find('div').exists()).toBe(true);
   });
 
-  describe('<Grid /> with default props/settings', () => {
+  describe('with default props/settings', () => {
     const expectedStyleList = [
       { style: 'display', value: 'flex' },
       { style: 'flex-flow', value: 'row wrap' },
@@ -37,7 +37,7 @@ describe('<Grid />', () => {
     });
   });
 
-  describe('<Grid /> with added props', () => {
+  describe('with added props', () => {
     const wrapperWithProps = shallow(
       <Grid
         flow="column nowrap"
@@ -68,7 +68,7 @@ describe('<Grid />', () => {
     });
   });
 
-  describe('<Grid /> passes styles down to children columns', () => {
+  describe('passes styles down to children columns', () => {
     const wrapper = mount(
       <Grid padded>
         <Col>Hello</Col>
@@ -92,12 +92,12 @@ describe('<Grid />', () => {
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('padding-top', '1em', {
-        modifier: css`${Col}`,
+        modifier: css`.brckwrx-col`,
       });
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('padding-left', '1em', {
-        modifier: css`${Col}`,
+        modifier: css`.brckwrx-col`,
       });
     });
 
@@ -112,7 +112,7 @@ describe('<Grid />', () => {
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('flex', '0 1 50%', {
-        modifier: css`> ${Col}`,
+        modifier: css`> .brckwrx-col`,
       });
     });
 
@@ -127,31 +127,31 @@ describe('<Grid />', () => {
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('flex', '0 1 25%', {
-        modifier: css`> ${Col}`,
+        modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('flex', '0 1 100%', {
         media: 'screen and (min-width: 576px)',
-        modifier: css`> ${Col}`,
+        modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('flex', '0 1 50%', {
         media: 'screen and (min-width: 768px)',
-        modifier: css`> ${Col}`,
+        modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('flex', '0 1 25%', {
         media: 'screen and (min-width: 992px)',
-        modifier: css`> ${Col}`,
+        modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('flex', '0 1 10%', {
         media: 'screen and (min-width: 1200px)',
-        modifier: css`> ${Col}`,
+        modifier: css`> .brckwrx-col`,
       });
     });
   });

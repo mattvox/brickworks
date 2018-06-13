@@ -18,7 +18,7 @@ exports[`<Col /> with added props - 1st set should match snapshot with props 1`]
 }
 
 <div
-  className="c0"
+  className="brckwrx-col c0"
   order={2}
 />
 `;
@@ -42,7 +42,7 @@ exports[`<Col /> with added props - 2nd set should match snapshot with props 1`]
 }
 
 <div
-  className="c0"
+  className="brckwrx-col c0"
 />
 `;
 
@@ -55,6 +55,6 @@ exports[`<Col /> with default props/settings should match snapshot 1`] = `
 }
 
 <div
-  className="c0"
+  className="brckwrx-col c0"
 />
 `;

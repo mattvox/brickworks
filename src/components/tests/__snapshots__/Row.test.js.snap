@@ -44,6 +44,6 @@ exports[`<Row /> should match snapshot 1`] = `
 }
 
 <div
-  className="c0"
+  className="brckwrx-row c0"
 />
 `;

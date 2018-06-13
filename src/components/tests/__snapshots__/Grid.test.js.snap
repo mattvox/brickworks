@@ -1,27 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Grid /> <Grid /> passes styles down to children columns should match snapshot with props 1`] = `
-.c3 {
-  box-sizing: border-box;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-}
-
-.kepMFu .c2 {
-  padding-top: 1em;
-  padding-left: 1em;
-}
-
-.kepMFu > .c0 {
-  padding-right: 0;
-}
-
-not:.c0 .kepMFu {
-  padding-bottom: 0;
-}
-
-.c1 {
+exports[`<Grid /> passes styles down to children columns should match snapshot with props 1`] = `
+.c0 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -45,17 +25,16 @@ not:.c0 .kepMFu {
   padding-bottom: 1em;
 }
 
-.c1 .c2 {
+.c0 .brckwrx-col {
   padding-top: 1em;
   padding-left: 1em;
 }
 
-.c1 > .c0 {
-  padding-right: 0;
-}
-
-not:.c0 .c1 {
-  padding-bottom: 0;
+.c1 {
+  box-sizing: border-box;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
 }
 
 <styled.div
@@ -70,11 +49,11 @@ not:.c0 .c1 {
   padded={true}
 >
   <div
-    className="c0 c1"
+    className="brckwrx-grid c0"
   >
     <Col>
       <div
-        className="c2 c3"
+        className="brckwrx-col c1"
       >
         Hello
       </div>
@@ -83,8 +62,8 @@ not:.c0 .c1 {
 </styled.div>
 `;
 
-exports[`<Grid /> <Grid /> with added props should match snapshot with props 1`] = `
-.c1 {
+exports[`<Grid /> with added props should match snapshot with props 1`] = `
+.c0 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -108,34 +87,18 @@ exports[`<Grid /> <Grid /> with added props should match snapshot with props 1`]
   padding-bottom: 1em;
 }
 
-.c1 .sc-bwzfXH {
+.c0 .brckwrx-col {
   padding-top: 1em;
   padding-left: 1em;
 }
 
-.c1 > .c0 {
-  padding-right: 0;
-}
-
-not:.c0 .c1 {
-  padding-bottom: 0;
-}
-
-.cSFbhn > .c0 {
-  padding-right: 0;
-}
-
-not:.c0 .cSFbhn {
-  padding-bottom: 0;
-}
-
 <div
-  className="c0 c1"
+  className="brckwrx-grid c0"
 />
 `;
 
-exports[`<Grid /> <Grid /> with default props/settings should match snapshot 1`] = `
-.c1 {
+exports[`<Grid /> with default props/settings should match snapshot 1`] = `
+.c0 {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -157,23 +120,7 @@ exports[`<Grid /> <Grid /> with default props/settings should match snapshot 1`]
   align-items: stretch;
 }
 
-.kepMFu > .c0 {
-  padding-right: 0;
-}
-
-not:.c0 .kepMFu {
-  padding-bottom: 0;
-}
-
-.cSFbhn > .c0 {
-  padding-right: 0;
-}
-
-not:.c0 .cSFbhn {
-  padding-bottom: 0;
-}
-
 <div
-  className="c0 c1"
+  className="brckwrx-grid c0"
 />
 `;
