@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/mattvox/brickworks.svg?branch=master)](https://travis-ci.org/mattvox/brickworks) [![Coverage Status](https://coveralls.io/repos/github/mattvox/brickworks/badge.svg?branch=master)](https://coveralls.io/github/mattvox/brickworks?branch=master)
 [![NPM](https://img.shields.io/npm/v/brickworks.svg)](https://www.npmjs.com/package/brickworks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-> ### Lightweight, dynamic, simple, and "stylish" grid layouts for React
+> ### Lightweight, dynamic, simple, and _styled_ grid layouts for React
 
 # Still a WIP!!! Do not use this yet! Documentation and release coming soon :)
 
@@ -59,6 +59,10 @@ class Example extends Component {
 ## `<Grid />`
 
 Grid is a container component, typically managing a combination of rows and columns.
+
+#### Prop | Default | Type | Description |
+
+| ---------------|----------------|---------------|---------------------|
 
 ## `<Row />`
 
