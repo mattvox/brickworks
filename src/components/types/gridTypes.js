@@ -1,10 +1,11 @@
-import { bool, number, string, shape, oneOf } from 'prop-types';
+import { bool, number, string, shape, oneOf, oneOfType } from 'prop-types';
+import cssWithUnit from './custom/cssWithUnit';
 
 // add custom prop type for media breakpoints
 
 export default {
   columns: number,
-  padded: bool,
+  padded: oneOfType([bool, cssWithUnit]),
   xs: number,
   sm: number,
   md: number,

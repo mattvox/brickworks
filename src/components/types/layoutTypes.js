@@ -1,17 +1,9 @@
 import { bool, oneOf } from 'prop-types';
 import cssWithUnit from './custom/cssWithUnit';
 
+// add custom prop type allowing sm, md, lg, etc to be passed for width/height
+
 export default {
-  padding: cssWithUnit,
-  paddingTop: cssWithUnit,
-  paddingRight: cssWithUnit,
-  paddingBottom: cssWithUnit,
-  paddingLeft: cssWithUnit,
-  margin: cssWithUnit,
-  marginTop: cssWithUnit,
-  marginRight: cssWithUnit,
-  marginBottom: cssWithUnit,
-  marginLeft: cssWithUnit,
   textAlign: oneOf([
     'left',
     'right',

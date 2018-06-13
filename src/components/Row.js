@@ -10,4 +10,11 @@ export const Row = Grid.extend`
   order: ${({ order }) => order || 0};
 `;
 
+Row.aside = Row.withComponent('aside');
+Row.main = Row.withComponent('main');
+Row.header = Row.withComponent('header');
+Row.footer = Row.withComponent('footer');
+Row.nav = Row.withComponent('nav');
+Row.section = Row.withComponent('section');
+
 export default Row;

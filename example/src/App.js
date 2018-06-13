@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { Grid, Col, Row } from 'brickworks';
 
 const Segment = styled.div`
-  border: 1px blue solid;
+  border: 2px gray solid;
+  border-radius: 8px;
   text-align: center;
   padding: 20px;
 `;
 
-// Col.section = Col.withComponent('section');
+const Main = styled(Grid.main)`
+  border: 2px solid green;
+`;
+
+const Section = styled(Row.section)`
+  ${Segment} {
+    background-color: papayawhip;
+  }
+`;
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Grid centered style={{ border: '1px solid green' }} padded>
+        <Main centered padded={2}>
           <Col>
             <Segment>No Row</Segment>
           </Col>
           <Col>
             <Segment>Just Cols</Segment>
           </Col>
-          <Row columns={3}>
+          <Section columns={3}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -32,7 +42,7 @@ export default class App extends Component {
             <Col>
               <Segment>3</Segment>
             </Col>
-          </Row>
+          </Section>
           <Row>
             <Col>
               <Segment>1</Segment>
@@ -61,9 +71,9 @@ export default class App extends Component {
               <Segment>6</Segment>
             </Col>
           </Row>
-          <Row columns={2}>
+          <Section columns={2}>
             <Col grid>
-              <Row columns={4}>
+              <Section columns={4}>
                 <Col>
                   <Segment>Col Grid</Segment>
                 </Col>
@@ -76,7 +86,7 @@ export default class App extends Component {
                 <Col>
                   <Segment>Col Grid</Segment>
                 </Col>
-              </Row>
+              </Section>
             </Col>
             <Col grid columns={2}>
               <Col>
@@ -86,8 +96,8 @@ export default class App extends Component {
                 <Segment>Only Cols</Segment>
               </Col>
             </Col>
-          </Row>
-        </Grid>
+          </Section>
+        </Main>
         {/* <Grid
           margin="1em"
           style={{ border: '1px solid green' }}
