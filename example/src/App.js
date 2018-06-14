@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { Grid, Col, Row } from 'brickworks';
+import { Grid, Row, Col } from 'brickworks';
 
 const Segment = styled.div`
   border: 2px gray solid;
