@@ -7,11 +7,15 @@
 
 ## Disclaimer: Very much still a work in progress, especially the documentation, but the core implementation is strong and very few breaking changes, if any, will happen before the v1 release. Full documentation and example site coming soon. Enjoy :)
 
-## Summary
+## Overview
 
-Brickworks is lightweight layout tool for use with React and Styled Components, which exposes a handful of components to help build and manage layouts, saving you and your team time and most importantly sanity.
+Brickworks is a lightweight layout tool, implementing the full Flexbox specification, for use with React and Styled Components. Brickworks exposes a small handful of components to help build and manage consistent layouts, saving you and your team time and most importantly sanity.
 
-Brickworks is designed to be incredibly user-friendly and easy to use. This is accomplished through smart defaults and an extremely focused philosophy. Brickworks is ONLY concerned with layout, nothing else, and aims to avoid conflicting with other libraries or styling choices as much as possible.
+Brickworks is designed to be incredibly user-friendly and easy to use, drawing on conventions present in similar CSS frameworks (such as grids, rows, and columns) that almost all developers are already familiar with. This is accomplished through smart defaults and an extremely focused philosophy.
+
+What sets Brickworks apart from the others is its commitment to ONLY be concerned with layout, nothing else. It aims to avoid conflicting with other libraries or styling choices as much as possible and provides the full Flexbox specification through props as an escape hatch for this complex layouts that cannot be achieved through shortcuts and smart defaults.
+
+##### TL;DR - Beautiful, consistent, and easy to build layouts with a handful of props, and the full Flexbox specification when you need it.
 
 ## Install
 
