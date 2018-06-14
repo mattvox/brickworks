@@ -78,11 +78,21 @@ Grid is a container component, typically managing a combination of rows and colu
 
 ## `<Row />`
 
-Grid is a container component, typically managing a combination of rows and columns.
+Row is both a container component and an item component, typically used to manage child columns, but within a container.
+
+| Prop      | Default      | Type | Description                                                                                                                                                                                       |
+| --------- | ------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `flow`    | `row wrap`   | enum | shorthand for flex-direction and flex-wrap, which define the container's axes. enums: `row` `row-reverse` `column` `column-reverse` `nowrap` `wrap` `wrap-reverse` `row nowrap` _needs more docs_ |
+| `justify` | `flex-start` | enum | sets alignment of items along the main axis. enums: `flex-start` `flex-end` `center` `space-around` `space-between` `space-evenly`                                                                |
 
 ## `<Col />`
 
-Grid is a container component, typically managing a combination of rows and columns.
+Col is an item component, typically used to wrap content inside a grid or row.
+
+| Prop      | Default      | Type | Description                                                                                                                                                                                       |
+| --------- | ------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `flow`    | `row wrap`   | enum | shorthand for flex-direction and flex-wrap, which define the container's axes. enums: `row` `row-reverse` `column` `column-reverse` `nowrap` `wrap` `wrap-reverse` `row nowrap` _needs more docs_ |
+| `justify` | `flex-start` | enum | sets alignment of items along the main axis. enums: `flex-start` `flex-end` `center` `space-around` `space-between` `space-evenly`                                                                |
 
 ## License
 
