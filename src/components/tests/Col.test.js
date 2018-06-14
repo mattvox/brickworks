@@ -28,35 +28,13 @@ describe('<Col />', () => {
 
   describe('with added props - 1st set', () => {
     const wrapperWithProps = shallow(
-      <Col
-        flex={{ grow: 2, shrink: 3, basis: '75%' }}
-        order={2}
-        alignSelf="center"
-      />,
+      <Col flex={[2, 3, '75%']} order={2} alignSelf="center" />,
     );
 
     const expectedStyleList = [
       { style: 'flex', value: '2 3 75%' },
       { style: 'order', value: '2' },
       { style: 'align-self', value: 'center' },
-    ];
-
-    it('should match snapshot with props', () => {
-      expect(shallowToJson(wrapperWithProps)).toMatchSnapshot();
-    });
-
-    expectedStyleList.forEach(({ style, value }) => {
-      return testStyle(wrapperWithProps, style, value);
-    });
-  });
-
-  describe('with added props - 2nd set', () => {
-    const wrapperWithProps = shallow(<Col grow={5} shrink={4} basis={50} />);
-
-    const expectedStyleList = [
-      { style: 'flex-grow', value: '5' },
-      { style: 'flex-shrink', value: '4' },
-      { style: 'flex-basis', value: '50%' },
     ];
 
     it('should match snapshot with props', () => {

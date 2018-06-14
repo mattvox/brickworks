@@ -5,13 +5,17 @@ export default function(flex) {
   switch (typeof flex) {
     case 'number':
       return css`
-        flex: ${flex};
+        ${flex};
       `;
     case 'object':
-      return css`
-        flex: ${flex.grow || 0} ${flex.shrink || 1}
-          ${applyCssWithUnit(flex.basis, '%') || 'auto'};
-      `;
+      if (Array.isArray(flex)) {
+        return css`
+          ${flex[0] || 0} ${flex[1] || 1} ${applyCssWithUnit(flex[2], '%') ||
+          'auto'};
+        `;
+      } else {
+        return 0;
+      }
     default:
       return 0;
   }

@@ -42,8 +42,8 @@ describe('<Grid />', () => {
       <Grid
         flow="column nowrap"
         justify="center"
-        align="space-around"
-        items="flex-end"
+        alignContent="space-around"
+        alignItems="flex-end"
         badProp1="this is a bad prop"
         badProp2="this is another bad prop"
         padded
@@ -111,7 +111,22 @@ describe('<Grid />', () => {
         .toJSON();
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex', '0 1 50%', {
+      expect(tree).toHaveStyleRule('flex-basis', '50%', {
+        modifier: css`> .brckwrx-col`,
+      });
+    });
+
+    it(`should pass flex when the colFlex prop is present`, () => {
+      const tree = renderer
+        .create(
+          <Grid colFlex={2}>
+            <Col />
+          </Grid>,
+        )
+        .toJSON();
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('flex', '2', {
         modifier: css`> .brckwrx-col`,
       });
     });
@@ -126,30 +141,30 @@ describe('<Grid />', () => {
         .toJSON();
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex', '0 1 25%', {
+      expect(tree).toHaveStyleRule('flex-basis', '25%', {
         modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex', '0 1 100%', {
+      expect(tree).toHaveStyleRule('flex-basis', '100%', {
         media: 'screen and (min-width: 576px)',
         modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex', '0 1 50%', {
+      expect(tree).toHaveStyleRule('flex-basis', '50%', {
         media: 'screen and (min-width: 768px)',
         modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex', '0 1 25%', {
+      expect(tree).toHaveStyleRule('flex-basis', '25%', {
         media: 'screen and (min-width: 992px)',
         modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex', '0 1 10%', {
+      expect(tree).toHaveStyleRule('flex-basis', '10%', {
         media: 'screen and (min-width: 1200px)',
         modifier: css`> .brckwrx-col`,
       });

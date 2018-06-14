@@ -1,3 +1,3 @@
+export { default as baseTypes } from './baseTypes';
 export { default as gridTypes } from './gridTypes';
-export { default as itemTypes } from './itemTypes';
-export { default as layoutTypes } from './layoutTypes';
+export { default as colTypes } from './colTypes';

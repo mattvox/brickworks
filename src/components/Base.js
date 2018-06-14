@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 import applyCssWithUnit from '../utils/applyCssWithUnit';
-import { layoutTypes } from './types';
+import { baseTypes } from './types';
 
 // prettier-ignore
-const Layout = styled.div.attrs({ className: ({ className }) => className || '' })`
+export const baseStyles = css`
   box-sizing: border-box;
   ${({
     textAlign,
@@ -27,8 +27,13 @@ const Layout = styled.div.attrs({ className: ({ className }) => className || '' 
   `};
 `;
 
-Layout.propTypes = {
-  ...layoutTypes,
+// prettier-ignore
+const Base = styled.div.attrs({ className: ({ className }) => className || '' })`
+  ${baseStyles}
+`;
+
+Base.propTypes = {
+  ...baseTypes,
 };
 
-export default Layout;
+export default Base;

@@ -1,19 +1,15 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import applyFlex from '../utils/applyFlex';
-import applyCssWithUnit from '../utils/applyCssWithUnit';
+import { colTypes, baseTypes } from './types';
 import { gridStyles } from './Grid';
-import { itemTypes } from './types';
-import Layout from './Layout';
+import { baseStyles } from './Base';
 
 // prettier-ignore
-export const Col = Layout.extend.attrs({ className: `brckwrx-col` })`
-  flex: 0 1 auto;
-  ${({ flex, grow, shrink, basis, order, alignSelf, grid }) => css`
-    ${flex && applyFlex(flex)}
-    ${grow && css`flex-grow: ${grow};`}
-    ${shrink && css`flex-shrink: ${shrink};`}
-    ${basis && css`flex-basis: ${applyCssWithUnit(basis, '%')};`}
+export const Col = styled.div.attrs({ className: `brckwrx-col` })`
+  ${baseStyles}
+  flex: ${({ flex }) => applyFlex(flex) || '0 1 auto'};
+  ${({ order, alignSelf, grid }) => css`
     ${order && css`order: ${order};`}
     ${alignSelf && css`align-self: ${alignSelf};`}
     ${grid && gridStyles}
@@ -22,7 +18,8 @@ export const Col = Layout.extend.attrs({ className: `brckwrx-col` })`
 `;
 
 Col.propTypes = {
-  ...itemTypes,
+  ...baseTypes,
+  ...colTypes,
 };
 
 Col.nav = Col.withComponent('nav');

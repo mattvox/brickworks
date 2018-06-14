@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Layout /> with added props - min/max width and text align should match snapshot with props 1`] = `
+exports[`<Base /> with added props - min/max width and text align should match snapshot with props 1`] = `
 .c0 {
   box-sizing: border-box;
   text-align: center;
@@ -15,7 +15,7 @@ exports[`<Layout /> with added props - min/max width and text align should match
 />
 `;
 
-exports[`<Layout /> with default props/settings should match snapshot 1`] = `
+exports[`<Base /> with default props/settings should match snapshot 1`] = `
 .c0 {
   box-sizing: border-box;
 }

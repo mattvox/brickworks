@@ -1,7 +1,14 @@
-import { bool, number, string, shape, oneOf, oneOfType } from 'prop-types';
+import {
+  bool,
+  number,
+  string,
+  shape,
+  oneOf,
+  oneOfType,
+  arrayOf,
+} from 'prop-types';
 import cssWithUnit from './custom/cssWithUnit';
-
-// add custom prop type for media breakpoints
+import flexWithArray from './custom/flexWithArray';
 
 export default {
   columns: number,
@@ -17,6 +24,7 @@ export default {
     lg: string.isRequired,
     xl: string.isRequired,
   }),
+  colFlex: oneOfType([number, arrayOf(flexWithArray)]),
   order: number,
   flow: oneOf([
     'row',
@@ -51,7 +59,7 @@ export default {
     'initial',
     'inherit',
   ]),
-  align: oneOf([
+  alignContent: oneOf([
     'flex-start',
     'flex-end',
     'center',
@@ -61,7 +69,7 @@ export default {
     'initial',
     'inherit',
   ]),
-  items: oneOf([
+  alignItems: oneOf([
     'flex-start',
     'flex-end',
     'center',

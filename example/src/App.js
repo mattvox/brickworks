@@ -19,7 +19,7 @@ const Section = styled(Row.section)`
   }
 `;
 
-const Aside = Col.withComponent('aside');
+const Aside = Col.aside;
 
 const StyledAside = styled(Aside)`
   ${Segment} {
@@ -49,7 +49,7 @@ export default class App extends Component {
               <Segment>3</Segment>
             </StyledAside>
           </Section>
-          <Row columns={2} sm={1}>
+          <Row columns={1} sm={2}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -57,7 +57,7 @@ export default class App extends Component {
               <Segment>2</Segment>
             </Col>
           </Row>
-          <Row justify="space-evenly" childFlex={1}>
+          <Row justify="space-between" colFlex={1}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -77,33 +77,33 @@ export default class App extends Component {
               <Segment>6</Segment>
             </Col>
           </Row>
-          <Row justify="space-evenly" childFlex={1}>
+          <Row justify="space-evenly" colFlex={1}>
             <Col>
-              <Segment>1</Segment>
+              <Segment>01</Segment>
             </Col>
             <Col>
-              <Segment>2</Segment>
+              <Segment>02</Segment>
             </Col>
             <Col>
-              <Segment>3</Segment>
+              <Segment>03</Segment>
             </Col>
             <Col>
-              <Segment>4</Segment>
+              <Segment>04</Segment>
             </Col>
             <Col>
-              <Segment>5</Segment>
+              <Segment>05</Segment>
             </Col>
             <Col>
-              <Segment>6</Segment>
+              <Segment>06</Segment>
             </Col>
             <Col>
-              <Segment>7</Segment>
+              <Segment>07</Segment>
             </Col>
             <Col>
-              <Segment>8</Segment>
+              <Segment>08</Segment>
             </Col>
             <Col>
-              <Segment>9</Segment>
+              <Segment>09</Segment>
             </Col>
             <Col>
               <Segment>10</Segment>
@@ -117,7 +117,7 @@ export default class App extends Component {
           </Row>
           <Section columns={2}>
             <Col grid>
-              <Section columns={4}>
+              <Section columns={2} md={4}>
                 <Col>
                   <Segment>Col Grid</Segment>
                 </Col>

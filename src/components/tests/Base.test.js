@@ -5,12 +5,12 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest-styled-components';
 
 import testStyle from './helpers/testStyle';
-import Layout from '../Layout';
+import Base from '../Base';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Layout />', () => {
-  const wrapper = shallow(<Layout />);
+describe('<Base />', () => {
+  const wrapper = shallow(<Base />);
 
   it('should render correctly', () => {
     expect(wrapper.find('div').exists()).toBe(true);
@@ -28,7 +28,7 @@ describe('<Layout />', () => {
 
   describe('with added props - min/max width and text align', () => {
     const wrapperWithProps = shallow(
-      <Layout
+      <Base
         textAlign="center"
         minWidth="500px"
         maxWidth="1000px"
@@ -56,17 +56,17 @@ describe('<Layout />', () => {
 
   describe('with added props - left, right, centered', () => {
     it('with left prop, should have style - margin-right: auto', () => {
-      const wrapper = shallow(<Layout left />);
+      const wrapper = shallow(<Base left />);
       expect(wrapper.find('div')).toHaveStyleRule('margin-right', 'auto');
     });
 
     it('with right prop, should have style - margin-left: auto', () => {
-      const wrapper = shallow(<Layout right />);
+      const wrapper = shallow(<Base right />);
       expect(wrapper.find('div')).toHaveStyleRule('margin-left', 'auto');
     });
 
     it('with centered prop, should have style - margin-left: auto, margin-right: auto', () => {
-      const wrapper = shallow(<Layout centered />);
+      const wrapper = shallow(<Base centered />);
       expect(wrapper.find('div')).toHaveStyleRule('margin-left', 'auto');
       expect(wrapper.find('div')).toHaveStyleRule('margin-right', 'auto');
     });
