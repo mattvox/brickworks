@@ -39,7 +39,7 @@ yarn add brickworks
 npm install --save brickworks
 ```
 
-Brickworks makes use of a modest list of peer dependencies, including Prop Types, and Styled Components. Make sure to install those too.
+Brickworks makes use of a modest list of peer dependencies, including Prop Types and Styled Components. Make sure to install those too.
 
 ```bash
 yarn add react prop-types styled-components
@@ -121,16 +121,16 @@ By default, child `Col` components will stack or wrap based on the column count 
 
 Brickworks layout components are configured through props. It aims to make available all the configuration necessary to create beautiful and complex layouts without any additional 'clutter'. All Brickworks components are composed with a base set of 'style' props available any component in the library.
 
-| Prop        | Default | Type            | Description                                                                          |
-| ----------- | ------- | --------------- | ------------------------------------------------------------------------------------ |
-| `left`      |         | bool            | sets the alignment to the left                                                       |
-| `right`     |         | bool            | sets the alignment to the right                                                      |
-| `center`    |         | bool            | centers the component                                                                |
-| `minWidth`  |         | number / string | set the minimum width                                                                |
-| `maxWidth`  |         | number / string | set the maximum width                                                                |
-| `minHeight` |         | number / string | set the minimum height                                                               |
-| `maxHeight` |         | number / string | set the maximum height                                                               |
-| `textAlign` |         | enum            | set the text alignment. enums: `left` `right` `center` `justify` `initial` `inherit` |
+| Prop        | Default | Type            | Description                                                                               |
+| ----------- | ------- | --------------- | ----------------------------------------------------------------------------------------- |
+| `left`      |         | bool            | sets the alignment to the left                                                            |
+| `right`     |         | bool            | sets the alignment to the right                                                           |
+| `center`    |         | bool            | centers the component                                                                     |
+| `minWidth`  |         | number / string | set the minimum width                                                                     |
+| `maxWidth`  |         | number / string | set the maximum width                                                                     |
+| `minHeight` |         | number / string | set the minimum height                                                                    |
+| `maxHeight` |         | number / string | set the maximum height                                                                    |
+| `textAlign` |         | enum            | set the text alignment. <br> enums: `left` `right` `center` `justify` `initial` `inherit` |
 
 ## `<Grid />`
 
