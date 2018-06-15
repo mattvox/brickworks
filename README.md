@@ -5,7 +5,7 @@
 
 > ### Lightweight, dynamic, simple, and _styled_ grid layouts for React
 
-#### Disclaimer: Very much still a work in progress, especially the documentation, but the core implementation is strong and very few breaking changes, if any, will happen before the v1 release. Full documentation and example site coming soon. Enjoy :)
+#### Disclaimer: Documentation still a work in progress. Full documentation and example site coming with the v1 release, which is very, very soon. Enjoy :)
 
 ## Overview
 
