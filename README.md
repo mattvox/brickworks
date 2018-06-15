@@ -5,7 +5,7 @@
 
 > ### Lightweight, dynamic, simple, and _styled_ grid layouts for React
 
-## Disclaimer: Very much still a work in progress, especially the documentation, but the core implementation is strong and very few breaking changes, if any, will happen before the v1 release. Full documentation and example site coming soon. Enjoy :)
+#### Disclaimer: Very much still a work in progress, especially the documentation, but the core implementation is strong and very few breaking changes, if any, will happen before the v1 release. Full documentation and example site coming soon. Enjoy :)
 
 ## Overview
 
@@ -15,31 +15,41 @@ Brickworks is designed to be incredibly user-friendly and easy to use, drawing o
 
 What sets Brickworks apart from the others is its commitment to ONLY be concerned with layout, nothing else. It aims to avoid conflicting with other libraries or styling choices as much as possible and provides the full Flexbox specification through props as an escape hatch for complex layouts that cannot be achieved through shortcuts and smart defaults.
 
-##### TL;DR - Beautiful, consistent, and easy to build layouts with a handful of props, and the full Flexbox specification when you need it.
+#### TL;DR - Beautiful, consistent, and easy to build layouts with a handful of props, and the full Flexbox specification when you need it.
+
+## Why Use Brickworks
+
+- #### Dynamic
+- #### Lightweight (~2kb gzipped)
+- #### Responsive and mobile-first
+- #### Focused, only concerned with layout
+- #### Fast and efficient workflow
+- #### Smart, easy to understand conventions
+- #### Almost no learning curve
+- #### No giant config required
+- #### Plays well with others
 
 ## Install
 
 ```bash
 yarn add brickworks
-```
-
-Brickworks makes use of a modest list of peer dependencies, including React, Prop Types, and Styled Components. Make sure to install those too.
-
-```bash
-yarn add react prop-types styled-components
-```
-
-Or with NPM
-
-```bash
+# or with npm
 npm install --save brickworks
 ```
 
+Brickworks makes use of a modest list of peer dependencies, including Prop Types, and Styled Components. Make sure to install those too.
+
 ```bash
-npm install --save react prop-types styled-components
+yarn add react prop-types styled-components
+# or with npm
+npm install --save prop-types styled-components
 ```
 
 ## Getting Started
+
+#### The most basic grid setup
+
+Creates a basic grid with one row and three columns. By default, Brickworks makes no assumptions when it comes to padding or margin. Without any props, you simply get the Flexbox defaults, with Grid representing a container, and the child Col components its items.
 
 ```jsx
 import React, { Component } from 'react';
@@ -49,15 +59,60 @@ class Example extends Component {
   render() {
     return (
       <Grid>
-        <Row>
-          <Col />
-          <Col />
-          <Col />
-        </Row>
+        <Col />
+        <Col />
+        <Col />
       </Grid>
     );
   }
 }
+```
+
+#### Responsive three-column layout with gutters
+
+The `Row` component can be added to introduce another level of control over its child `Col` components, enabling quick and easy creation of more complex layouts. With a few props we now have three equal-width columns with a `1em` gutter.
+
+```jsx
+<Grid padded>
+  <Row columns={3}>
+    <Col />
+    <Col />
+    <Col />
+  </Row>
+</Grid>
+```
+
+#### Responsive three-column layout with gutters, but centered with a maximum width
+
+We can also give our grid a max width and center it automatically by passing it the `maxWidth` and `centered` prop.
+
+```jsx
+<Grid centered maxWidth={1000} padded>
+  <Row columns={3}>
+    <Col />
+    <Col />
+    <Col />
+  </Row>
+</Grid>
+```
+
+#### Responsive layout with media queries
+
+Brickworks also makes working with different breakpoints a breeze. Our basic grid setup now renders its child Col components at different widths based on media breakpoints, still maintaining equal spacing and widths.
+
+By default, child Col components will stack or wrap based on the column count at each breakpoint. In this example with six columns, we'll get two rows of equally-spaced Col components on medium-sized screens or larger, three rows of two columns on small screens, and six rows of one column on extra small screens.
+
+```jsx
+<Grid centered maxWidth={1000} padded>
+  <Row xs={1} sm={2} md={3}>
+    <Col />
+    <Col />
+    <Col />
+    <Col />
+    <Col />
+    <Col />
+  </Row>
+</Grid>
 ```
 
 ## `<Grid />`
