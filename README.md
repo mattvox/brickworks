@@ -19,11 +19,9 @@ What sets Brickworks apart from the others is its commitment to ONLY be concerne
 
 ## Why Use Brickworks
 
-- #### Dynamic
-- #### Lightweight (~2kb gzipped)
-
-* #### Fully-typed props with > 99% test coverage
-
+#### - Dynamic
+#### - Lightweight (~2kb gzipped)
+- #### Fully-typed props with > 99% test coverage
 - #### Responsive and mobile-first
 - #### Focused, only concerned with layout
 - #### Smart, easy to understand conventions
