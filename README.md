@@ -26,7 +26,6 @@ What sets Brickworks apart from the others is its commitment to ONLY be concerne
 
 - #### Responsive and mobile-first
 - #### Focused, only concerned with layout
-- #### Fast and efficient workflow
 - #### Smart, easy to understand conventions
 - #### Almost no learning curve
 - #### No giant config required
