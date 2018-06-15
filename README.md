@@ -21,13 +21,13 @@ What sets Brickworks apart from the others is its commitment to ONLY be concerne
 
 #### - Dynamic
 #### - Lightweight (~2kb gzipped)
-- #### Fully-typed props with > 99% test coverage
-- #### Responsive and mobile-first
-- #### Focused, only concerned with layout
-- #### Smart, easy to understand conventions
-- #### Almost no learning curve
-- #### No giant config required
-- #### Plays well with others
+#### - Fully-typed props with > 99% test coverage
+#### - Responsive and mobile-first
+#### - Focused, only concerned with layout
+#### - Smart, easy to understand conventions
+#### - Almost no learning curve
+#### - No giant config required
+#### - Plays well with others
 
 ## Install
 
