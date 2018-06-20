@@ -15,54 +15,80 @@ export const gridStyles = css`
   align-content: ${({ alignContent }) => alignContent || 'stretch'};
   align-items: ${({ alignItems }) => alignItems || 'stretch'};
 
-  ${({ padded, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
+  ${({ padded, justify, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
     ${colFlex && css`> .brckwrx-col { flex: ${applyFlex(colFlex, '%')}} `}
-
     ${padded && css`
-      padding-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-      padding-left: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-      padding-right: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-      padding-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+      margin-top: 0;
+      margin-bottom: 0;
+      justify-content: ${justify || 'space-between'};
 
-      .brckwrx-col {
+      :not(.brckwrx-row) :not(.brckwrx-col) {
         padding-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        padding-left: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        padding-right: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
         padding-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+        padding-left: ${applyCssWithUnit(padded, 'em') || '1em'};
+        padding-right: ${applyCssWithUnit(padded, 'em') || '1em'};
+      }
+
+      > .brckwrx-col, > .brckwrx-row {
+        margin-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+        margin-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+      }
+
+      .brckwrx-grid & {
+        margin-top: 0;
+        margin-bottom: 0;
       }
     `}
 
     ${(columns || xs) && css`
       > .brckwrx-col {
-        flex-basis: ${100 / (columns || xs)}%;
+        ${applyBasis(columns || xs, padded)};
       }
     `}
 
     ${sm && media(breakpoints).sm`
       > .brckwrx-col {
-        flex-basis: ${100 / sm}%;
+        ${applyBasis(sm, padded)};
       }
     `}
 
     ${md && media(breakpoints).md`
       > .brckwrx-col {
-        flex-basis: ${100 / md}%;
+        ${applyBasis(md, padded)};
       }
     `}
 
     ${lg && media(breakpoints).lg`
       > .brckwrx-col {
-        flex-basis: ${100 / lg}%;
+        ${applyBasis(lg, padded)};
       }
     `}
 
     ${xl && media(breakpoints).xl`
       > .brckwrx-col {
-        flex-basis: ${100 / xl}%;
+        ${applyBasis(xl, padded)};
       }
     `}
-  `}
+  `};
 `;
+
+const applyBasis = (cols, padding) => {
+  const basis = 100 / cols;
+
+  if (!padding) {
+    return css`
+      flex-basis: ${basis}%;
+    `;
+  }
+
+  const gutterCount = cols - 1;
+  const gutterSize =
+    typeof padding !== 'boolean' ? `${padding}/${cols}` : `${1 / cols}em`;
+
+  return css`
+    flex-basis: calc(${basis}% - (${gutterCount} * ${gutterSize}));
+  `;
+};
 
 // prettier-ignore
 const Grid = styled.div.attrs({ className: `brckwrx-grid` })`

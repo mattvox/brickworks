@@ -55,8 +55,6 @@ describe('<Grid />', () => {
       { style: 'justify-content', value: 'center' },
       { style: 'align-content', value: 'space-around' },
       { style: 'align-items', value: 'flex-end' },
-      { style: 'padding-right', value: 'calc(1em / 2)' },
-      { style: 'padding-bottom', value: 'calc(1em / 2)' },
     ];
 
     it('should match snapshot with props', () => {
@@ -81,7 +79,7 @@ describe('<Grid />', () => {
       expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 
-    it(`should pass padding top and left when padded prop is present`, () => {
+    it(`should pass margin top and bottom when padded prop is present`, () => {
       const tree = renderer
         .create(
           <Grid padded={2}>
@@ -91,13 +89,13 @@ describe('<Grid />', () => {
         .toJSON();
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('padding-top', 'calc(2em / 2)', {
-        modifier: css`.brckwrx-col`,
+      expect(tree).toHaveStyleRule('margin-top', 'calc(2em / 2)', {
+        modifier: css`> .brckwrx-col`,
       });
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('padding-left', 'calc(2em / 2)', {
-        modifier: css`.brckwrx-col`,
+      expect(tree).toHaveStyleRule('margin-bottom', 'calc(2em / 2)', {
+        modifier: css`> .brckwrx-col`,
       });
     });
 

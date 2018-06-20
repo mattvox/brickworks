@@ -31,14 +31,14 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Main padded>
-          <Col>
+        <Main padded={2}>
+          <Col style={{ backgroundColor: 'pink' }}>
             <Segment>No Row</Segment>
           </Col>
           <Col>
             <Segment>Just Cols</Segment>
           </Col>
-          <Section columns={3}>
+          <Section xs={1} md={3} padded>
             <StyledAside>
               <Segment>1</Segment>
             </StyledAside>
@@ -57,7 +57,14 @@ export default class App extends Component {
               <Segment>2</Segment>
             </Col>
           </Row>
-          <Row columns={4}>
+          <Row>
+            <Col flex={1}>
+              <Segment style={{ height: 300, backgroundColor: 'pink' }}>
+                Big Box
+              </Segment>
+            </Col>
+          </Row>
+          <Row xs={1} sm={2} md={4} padded>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -71,7 +78,7 @@ export default class App extends Component {
               <Segment>4</Segment>
             </Col>
           </Row>
-          <Row colFlex={1} style={{ backgroundColor: 'pink' }}>
+          <Row colFlex={1}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -129,9 +136,23 @@ export default class App extends Component {
               <Segment>12</Segment>
             </Col>
           </Row>
-          <Section columns={2}>
+          <Section columns={2} padded>
             <Col grid>
-              <Section columns={2} md={4}>
+              <Section columns={2} md={4} padded>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+                <Col>
+                  <Segment>Col Grid</Segment>
+                </Col>
+              </Section>
+              <Section columns={2} md={4} padded>
                 <Col>
                   <Segment>Col Grid</Segment>
                 </Col>
@@ -146,7 +167,13 @@ export default class App extends Component {
                 </Col>
               </Section>
             </Col>
-            <Col grid columns={2}>
+            <Col grid columns={2} padded>
+              <Col>
+                <Segment>Only Cols</Segment>
+              </Col>
+              <Col>
+                <Segment>Only Cols</Segment>
+              </Col>
               <Col>
                 <Segment>Only Cols</Segment>
               </Col>
@@ -161,7 +188,7 @@ export default class App extends Component {
           style={{ border: '1px solid green' }}
           maxWidth={1200}
           columns={2}
-          padded
+          
           centered
         >
           <Col>

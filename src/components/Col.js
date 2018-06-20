@@ -13,7 +13,7 @@ export const Col = styled.div.attrs({ className: `brckwrx-col` })`
     ${order && css`order: ${order};`}
     ${alignSelf && css`align-self: ${alignSelf};`}
     ${grid && gridStyles}
-    ${grid && css`padding: 0 !important;`}
+    ${grid && css`margin: 0 !important;`}
   `}
 `;
 
