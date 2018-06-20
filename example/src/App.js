@@ -71,7 +71,7 @@ export default class App extends Component {
               <Segment>4</Segment>
             </Col>
           </Row>
-          <Row colFlex={1}>
+          <Row colFlex={1} style={{ backgroundColor: 'pink' }}>
             <Col>
               <Segment>1</Segment>
             </Col>

@@ -19,12 +19,16 @@ export const gridStyles = css`
     ${colFlex && css`> .brckwrx-col { flex: ${applyFlex(colFlex, '%')}} `}
 
     ${padded && css`
-      padding-right: ${applyCssWithUnit(padded, 'em') || '1em'};
-      padding-bottom: ${applyCssWithUnit(padded, 'em') || '1em'};
+      padding-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+      padding-left: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+      padding-right: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+      padding-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
 
       .brckwrx-col {
-        padding-top: ${applyCssWithUnit(padded, 'em') || '1em'};
-        padding-left: ${applyCssWithUnit(padded, 'em') || '1em'};
+        padding-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+        padding-left: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+        padding-right: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
+        padding-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
       }
     `}
 
@@ -51,7 +55,7 @@ export const gridStyles = css`
         flex-basis: ${100 / lg}%;
       }
     `}
-    
+
     ${xl && media(breakpoints).xl`
       > .brckwrx-col {
         flex-basis: ${100 / xl}%;
