@@ -9,30 +9,35 @@ import { baseStyles } from './Base';
 
 // prettier-ignore
 export const gridStyles = css`
-  display: flex;
-  flex-flow: ${({ flow }) => flow || 'row wrap'};
-  justify-content: ${({ justify }) => justify || 'flex-start'};
-  align-content: ${({ alignContent }) => alignContent || 'stretch'};
-  align-items: ${({ alignItems }) => alignItems || 'stretch'};
+         display: flex;
+         flex-flow: ${({ flow }) => flow || 'row wrap'};
+         justify-content: ${({ justify }) => justify || 'flex-start'};
+         align-content: ${({ alignContent }) => alignContent || 'stretch'};
+         align-items: ${({ alignItems }) => alignItems || 'stretch'};
 
-  ${({ padded, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
+         ${({ padded, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
     ${colFlex && css`> .brckwrx-col { flex: ${applyFlex(colFlex, '%')}} `}
-
     ${padded && css`
-      padding-right: ${applyCssWithUnit(padded, 'em') || '1em'};
-      padding-bottom: ${applyCssWithUnit(padded, 'em') || '1em'};
-
-      .brckwrx-col {
-        padding-top: ${applyCssWithUnit(padded, 'em') || '1em'};
+      justify-content: space-between;
+      :not(.brckwrx-row) {
         padding-left: ${applyCssWithUnit(padded, 'em') || '1em'};
+        padding-right: ${applyCssWithUnit(padded, 'em') || '1em'};
+        padding-bottom: ${applyCssWithUnit(padded, 'em') || '1em'};
+      }
+
+      > .brckwrx-row {
+        padding-top: ${applyCssWithUnit(padded, 'em') || '1em'};
+      }
+
+      :not(.brckwrx-row) > .brckwrx-col {
+        padding-top: ${applyCssWithUnit(padded, 'em') || '1em'};
       }
     `}
 
     ${(columns || xs) && css`
-      > .brckwrx-col {
-        flex-basis: ${100 / (columns || xs)}%;
-      }
-    `}
+        > .brckwrx-col {
+          ${applyBasis(columns, padded)};
+        }`}
 
     ${sm && media(breakpoints).sm`
       > .brckwrx-col {
@@ -51,14 +56,32 @@ export const gridStyles = css`
         flex-basis: ${100 / lg}%;
       }
     `}
-    
+
     ${xl && media(breakpoints).xl`
       > .brckwrx-col {
         flex-basis: ${100 / xl}%;
       }
     `}
-  `}
-`;
+  `};`;
+
+const applyBasis = (cols, padding) => {
+  console.log(padding);
+  const basis = 100 / cols;
+
+  if (!padding) {
+    return css`
+      flex-basis: ${basis}%;
+    `;
+  }
+
+  const gutterCount = cols - 1;
+  const gutterSize =
+    typeof padding !== 'boolean' ? `${padding}/${cols}` : `${1 / cols}em`;
+
+  return css`
+    flex-basis: calc(${basis}% - (${gutterCount} * ${gutterSize}));
+  `;
+};
 
 // prettier-ignore
 const Grid = styled.div.attrs({ className: `brckwrx-grid` })`

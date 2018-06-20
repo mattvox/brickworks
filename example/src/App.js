@@ -31,7 +31,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Main centered justify="space-evenly" padded>
+        <Main padded>
           <Col>
             <Segment>No Row</Segment>
           </Col>
@@ -49,7 +49,7 @@ export default class App extends Component {
               <Segment>3</Segment>
             </StyledAside>
           </Section>
-          <Row columns={1} sm={2}>
+          <Row columns={2}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -57,7 +57,21 @@ export default class App extends Component {
               <Segment>2</Segment>
             </Col>
           </Row>
-          <Row justify="space-between" colFlex={1}>
+          <Row columns={4}>
+            <Col>
+              <Segment>1</Segment>
+            </Col>
+            <Col>
+              <Segment>2</Segment>
+            </Col>
+            <Col>
+              <Segment>3</Segment>
+            </Col>
+            <Col>
+              <Segment>4</Segment>
+            </Col>
+          </Row>
+          <Row colFlex={1}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -77,7 +91,7 @@ export default class App extends Component {
               <Segment>6</Segment>
             </Col>
           </Row>
-          <Row justify="space-evenly" colFlex={1}>
+          <Row colFlex={1}>
             <Col>
               <Segment>01</Segment>
             </Col>
