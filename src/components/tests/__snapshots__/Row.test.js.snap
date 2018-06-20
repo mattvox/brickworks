@@ -3,6 +3,12 @@
 exports[`<Row /> should match snapshot 1`] = `
 .c0 {
   box-sizing: border-box;
+  -webkit-flex: 0 1 100%;
+  -ms-flex: 0 1 100%;
+  flex: 0 1 100%;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,26 +27,6 @@ exports[`<Row /> should match snapshot 1`] = `
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  -webkit-flex: 0 1 100%;
-  -ms-flex: 0 1 100%;
-  flex: 0 1 100%;
-  -webkit-flex-flow: inherit;
-  -ms-flex-flow: inherit;
-  flex-flow: inherit;
-  -webkit-box-pack: inherit;
-  -webkit-justify-content: inherit;
-  -ms-flex-pack: inherit;
-  justify-content: inherit;
-  -webkit-align-content: inherit;
-  -ms-flex-line-pack: inherit;
-  align-content: inherit;
-  -webkit-align-items: inherit;
-  -webkit-box-align: inherit;
-  -ms-flex-align: inherit;
-  align-items: inherit;
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
 }
 
 <div

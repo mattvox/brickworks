@@ -47,7 +47,7 @@ describe('<Grid />', () => {
         badProp1="this is a bad prop"
         badProp2="this is another bad prop"
         padded
-      />,
+      />
     );
 
     const expectedStyleList = [
@@ -55,8 +55,8 @@ describe('<Grid />', () => {
       { style: 'justify-content', value: 'center' },
       { style: 'align-content', value: 'space-around' },
       { style: 'align-items', value: 'flex-end' },
-      { style: 'padding-right', value: '1em' },
-      { style: 'padding-bottom', value: '1em' },
+      { style: 'padding-right', value: 'calc(1em / 2)' },
+      { style: 'padding-bottom', value: 'calc(1em / 2)' },
     ];
 
     it('should match snapshot with props', () => {
@@ -70,9 +70,9 @@ describe('<Grid />', () => {
 
   describe('passes styles down to children columns', () => {
     const wrapper = mount(
-      <Grid padded>
+      <Grid padded={2}>
         <Col>Hello</Col>
-      </Grid>,
+      </Grid>
     );
 
     Col.displayName = 'Col';
@@ -84,19 +84,19 @@ describe('<Grid />', () => {
     it(`should pass padding top and left when padded prop is present`, () => {
       const tree = renderer
         .create(
-          <Grid padded>
+          <Grid padded={2}>
             <Col />
-          </Grid>,
+          </Grid>
         )
         .toJSON();
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('padding-top', '1em', {
+      expect(tree).toHaveStyleRule('padding-top', 'calc(2em / 2)', {
         modifier: css`.brckwrx-col`,
       });
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('padding-left', '1em', {
+      expect(tree).toHaveStyleRule('padding-left', 'calc(2em / 2)', {
         modifier: css`.brckwrx-col`,
       });
     });
@@ -106,7 +106,7 @@ describe('<Grid />', () => {
         .create(
           <Grid columns={2}>
             <Col />
-          </Grid>,
+          </Grid>
         )
         .toJSON();
 
@@ -121,7 +121,7 @@ describe('<Grid />', () => {
         .create(
           <Grid colFlex={2}>
             <Col />
-          </Grid>,
+          </Grid>
         )
         .toJSON();
 
@@ -136,7 +136,7 @@ describe('<Grid />', () => {
         .create(
           <Grid xs={4} sm={1} md={2} lg={4} xl={10}>
             <Col />
-          </Grid>,
+          </Grid>
         )
         .toJSON();
 

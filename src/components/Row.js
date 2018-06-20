@@ -9,10 +9,6 @@ import { baseStyles } from './Base';
 export const Row = styled.div.attrs({ className: `brckwrx-row` })`
   ${baseStyles}
   flex: 0 1 100%;
-  flex-flow: ${({ flow }) => flow || 'inherit'};
-  justify-content: ${({ justify }) => justify || 'inherit'};
-  align-content: ${({ alignContent }) => alignContent || 'inherit'};
-  align-items: ${({ alignItems }) => alignItems || 'inherit'};
   order: ${({ order }) => order || 0};
   ${gridStyles}
 `;

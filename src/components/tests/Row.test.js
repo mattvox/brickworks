@@ -23,20 +23,23 @@ describe('<Row />', () => {
     expect(wrapper.find('div')).toHaveStyleRule('flex', '0 1 100%');
   });
 
-  it('should have default style - flex-flow: inherit', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('flex-flow', 'inherit');
+  it('should have default style - flex-flow: row wrap', () => {
+    expect(wrapper.find('div')).toHaveStyleRule('flex-flow', 'row wrap');
   });
 
-  it('should have default style - justify-content: inherit', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('justify-content', 'inherit');
+  it('should have default style - justify-content: flex-start', () => {
+    expect(wrapper.find('div')).toHaveStyleRule(
+      'justify-content',
+      'flex-start'
+    );
   });
 
-  it('should have default style - align-content: inherit', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('align-content', 'inherit');
+  it('should have default style - align-content: stretch', () => {
+    expect(wrapper.find('div')).toHaveStyleRule('align-content', 'stretch');
   });
 
-  it('should have default style - align-items: inherit', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('align-items', 'inherit');
+  it('should have default style - align-items: stretch', () => {
+    expect(wrapper.find('div')).toHaveStyleRule('align-items', 'stretch');
   });
 
   it('should have default style - order: 0', () => {

@@ -21,13 +21,17 @@ exports[`<Grid /> passes styles down to children columns should match snapshot w
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  padding-right: 1em;
-  padding-bottom: 1em;
+  padding-top: calc(2em / 2);
+  padding-left: calc(2em / 2);
+  padding-right: calc(2em / 2);
+  padding-bottom: calc(2em / 2);
 }
 
 .c0 .brckwrx-col {
-  padding-top: 1em;
-  padding-left: 1em;
+  padding-top: calc(2em / 2);
+  padding-left: calc(2em / 2);
+  padding-right: calc(2em / 2);
+  padding-bottom: calc(2em / 2);
 }
 
 .c1 {
@@ -46,7 +50,7 @@ exports[`<Grid /> passes styles down to children columns should match snapshot w
       "xl": "1200px",
     }
   }
-  padded={true}
+  padded={2}
 >
   <div
     className="brckwrx-grid c0"
@@ -83,13 +87,17 @@ exports[`<Grid /> with added props should match snapshot with props 1`] = `
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
   align-items: flex-end;
-  padding-right: 1em;
-  padding-bottom: 1em;
+  padding-top: calc(1em / 2);
+  padding-left: calc(1em / 2);
+  padding-right: calc(1em / 2);
+  padding-bottom: calc(1em / 2);
 }
 
 .c0 .brckwrx-col {
-  padding-top: 1em;
-  padding-left: 1em;
+  padding-top: calc(1em / 2);
+  padding-left: calc(1em / 2);
+  padding-right: calc(1em / 2);
+  padding-bottom: calc(1em / 2);
 }
 
 <div
