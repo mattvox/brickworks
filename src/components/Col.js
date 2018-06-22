@@ -7,13 +7,14 @@ import { baseStyles } from './Base';
 
 // prettier-ignore
 export const Col = styled.div.attrs({ className: `brckwrx-col` })`
+  margin: 0;
   ${baseStyles}
   flex: ${({ flex }) => applyFlex(flex) || '0 1 auto'};
   ${({ order, alignSelf, grid }) => css`
     ${order && css`order: ${order};`}
     ${alignSelf && css`align-self: ${alignSelf};`}
     ${grid && gridStyles}
-    ${grid && css`margin: 0 !important;`}
+    ${grid && css`padding: 0 !important;`}
   `}
 `;
 

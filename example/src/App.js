@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { Grid, Row, Col } from 'brickworks';
+
+const theme = {
+  breakpoints: {
+    sm: '400px',
+    md: '700px',
+    lg: '1000px',
+    xl: '1030px',
+  },
+  padded: '1.5em',
+};
 
 const Segment = styled.div`
   border: 2px gray solid;
@@ -30,15 +40,9 @@ const StyledAside = styled(Aside)`
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <Main padded={2}>
-          <Col style={{ backgroundColor: 'pink' }}>
-            <Segment>No Row</Segment>
-          </Col>
-          <Col>
-            <Segment>Just Cols</Segment>
-          </Col>
-          <Section xs={1} md={3} padded>
+      <ThemeProvider theme={theme}>
+        <Main>
+          <Section xs={1} md={3}>
             <StyledAside>
               <Segment>1</Segment>
             </StyledAside>
@@ -57,14 +61,45 @@ export default class App extends Component {
               <Segment>2</Segment>
             </Col>
           </Row>
-          <Row>
-            <Col flex={1}>
-              <Segment style={{ height: 300, backgroundColor: 'pink' }}>
+          <Row xs={1} md={2}>
+            <Col grid>
+              <Row columns={2}>
+                <Col>
+                  <Segment style={{ height: 50, backgroundColor: 'pink' }}>
+                    Small Box
+                  </Segment>
+                </Col>
+                <Col>
+                  <Segment style={{ height: 50, backgroundColor: 'pink' }}>
+                    Small Box
+                  </Segment>
+                </Col>
+                <Col>
+                  <Segment style={{ height: 50, backgroundColor: 'pink' }}>
+                    Small Box
+                  </Segment>
+                </Col>
+                <Col>
+                  <Segment style={{ height: 50, backgroundColor: 'pink' }}>
+                    Small Box
+                  </Segment>
+                </Col>
+              </Row>
+            </Col>
+            <Col>
+              <Segment style={{ height: 160, backgroundColor: 'pink' }}>
                 Big Box
               </Segment>
             </Col>
           </Row>
-          <Row xs={1} sm={2} md={4} padded>
+          {/* <Row justify="center">
+            <Col>
+              <Segment style={{ height: 100, width: 100 }}>
+                Centered Box
+              </Segment>
+            </Col>
+          </Row> */}
+          <Row xs={1} sm={2} md={4}>
             <Col>
               <Segment>1</Segment>
             </Col>
@@ -78,23 +113,23 @@ export default class App extends Component {
               <Segment>4</Segment>
             </Col>
           </Row>
-          <Row colFlex={1}>
-            <Col>
+          <Row>
+            <Col flex={5}>
               <Segment>1</Segment>
             </Col>
-            <Col>
+            <Col flex={4}>
               <Segment>2</Segment>
             </Col>
-            <Col>
+            <Col flex={3}>
               <Segment>3</Segment>
             </Col>
-            <Col>
+            <Col flex={2}>
               <Segment>4</Segment>
             </Col>
-            <Col>
+            <Col flex={1}>
               <Segment>5</Segment>
             </Col>
-            <Col>
+            <Col flex={0}>
               <Segment>6</Segment>
             </Col>
           </Row>
@@ -136,9 +171,9 @@ export default class App extends Component {
               <Segment>12</Segment>
             </Col>
           </Row>
-          <Section columns={2} padded>
+          <Section columns={2}>
             <Col grid>
-              <Section columns={2} md={4} padded>
+              <Section columns={2} md={4}>
                 <Col>
                   <Segment>Col Grid</Segment>
                 </Col>
@@ -152,7 +187,7 @@ export default class App extends Component {
                   <Segment>Col Grid</Segment>
                 </Col>
               </Section>
-              <Section columns={2} md={4} padded>
+              <Section columns={2} md={4}>
                 <Col>
                   <Segment>Col Grid</Segment>
                 </Col>
@@ -167,83 +202,47 @@ export default class App extends Component {
                 </Col>
               </Section>
             </Col>
-            <Col grid columns={2} padded>
-              <Col>
-                <Segment>Only Cols</Segment>
-              </Col>
-              <Col>
-                <Segment>Only Cols</Segment>
-              </Col>
-              <Col>
-                <Segment>Only Cols</Segment>
-              </Col>
-              <Col>
-                <Segment>Only Cols</Segment>
-              </Col>
+            <Col grid alignItems="flex-end">
+              <Row columns={3}>
+                <Col>
+                  <Segment>Three Columns</Segment>
+                </Col>
+                <Col>
+                  <Segment>Three Columns</Segment>
+                </Col>
+                <Col>
+                  <Segment>Three Columns</Segment>
+                </Col>
+                <Col>
+                  <Segment>Three Columns</Segment>
+                </Col>
+              </Row>
             </Col>
           </Section>
+          <Row columns={2}>
+            <Col>
+              <Segment>Inside Row</Segment>
+            </Col>
+            <Col grid>
+              <Row columns={2}>
+                <Col>
+                  <Segment>Inside Col Grid</Segment>
+                </Col>
+                <Col grid>
+                  <Row columns={2}>
+                    <Col>
+                      <Segment>ICG</Segment>
+                    </Col>
+                    <Col>
+                      <Segment>ICG</Segment>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
         </Main>
-        {/* <Grid
-          margin="1em"
-          style={{ border: '1px solid green' }}
-          maxWidth={1200}
-          columns={2}
-          
-          centered
-        >
-          <Col>
-            <Segment>Test</Segment>
-          </Col>
-          <Col>
-            <Segment>Test</Segment>
-          </Col>
-          <Row
-            xs={1}
-            sm={3}
-            xl={3}
-            justifyContent="space-around"
-            className="row"
-          >
-            <Col>
-              <Segment>1</Segment>
-            </Col>
-            <Col>
-              <Segment>2</Segment>
-            </Col>
-            <Col>
-              <Segment>3</Segment>
-            </Col>
-          </Row>
-          <Row>
-            <Col flex={1} className="flexing-hard">
-              <Segment>1</Segment>
-            </Col>
-            <Col>
-              <Segment>2</Segment>
-            </Col>
-          </Row>
-          <Row columns={3}>
-            <Col>
-              <Segment>1</Segment>
-            </Col>
-            <Col>
-              <Segment>2</Segment>
-            </Col>
-            <Col>
-              <Segment>3</Segment>
-            </Col>
-            <Col>
-              <Segment>4</Segment>
-            </Col>
-            <Col>
-              <Segment>5</Segment>
-            </Col>
-            <Col>
-              <Segment>6</Segment>
-            </Col>
-          </Row>
-        </Grid> */}
-      </div>
+      </ThemeProvider>
     );
   }
 }

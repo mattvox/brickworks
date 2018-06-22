@@ -7,88 +7,63 @@ import breakpoints from '../utils/defaultBreakpoints';
 import { gridTypes, baseTypes } from './types';
 import { baseStyles } from './Base';
 
+// remove unneeded defaults that are already default and use default props to set defaults,
+// reducing lines of code.
+
+// fix defaults and themes, themes should apply first, then props, but default props,
+// currently override the themes, which is bad.
+
 // prettier-ignore
 export const gridStyles = css`
   display: flex;
   flex-flow: ${({ flow }) => flow || 'row wrap'};
+
   justify-content: ${({ justify }) => justify || 'flex-start'};
   align-content: ${({ alignContent }) => alignContent || 'stretch'};
   align-items: ${({ alignItems }) => alignItems || 'stretch'};
 
-  ${({ padded, justify, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
+  ${({ padded, theme, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
     ${colFlex && css`> .brckwrx-col { flex: ${applyFlex(colFlex, '%')}} `}
-    ${padded && css`
-      margin-top: 0;
-      margin-bottom: 0;
-      justify-content: ${justify || 'space-between'};
-
+    ${(padded || theme.padded) && css`
       :not(.brckwrx-row) :not(.brckwrx-col) {
-        padding-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        padding-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        padding-left: ${applyCssWithUnit(padded, 'em') || '1em'};
-        padding-right: ${applyCssWithUnit(padded, 'em') || '1em'};
+        padding-top: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
+        padding-left: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
       }
 
-      > .brckwrx-col, > .brckwrx-row {
-        margin-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        margin-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-      }
-
-      .brckwrx-grid & {
-        margin-top: 0;
-        margin-bottom: 0;
+      .brckwrx-col {
+        padding-right: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
+        padding-bottom: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
       }
     `}
 
     ${(columns || xs) && css`
+        > .brckwrx-col {
+          flex-basis: ${100 / (columns || xs)}%;
+        }
+    `}
+    ${sm && media(breakpoints || theme.breakpoints).sm`
       > .brckwrx-col {
-        ${applyBasis(columns || xs, padded)};
+        flex-basis: ${100 / sm}%;
       }
     `}
-
-    ${sm && media(breakpoints).sm`
+    ${md && media(breakpoints || theme.breakpoints).md`
       > .brckwrx-col {
-        ${applyBasis(sm, padded)};
+        flex-basis: ${100 / md}%;
       }
     `}
-
-    ${md && media(breakpoints).md`
+    ${lg && media(breakpoints || theme.breakpoints).lg`
       > .brckwrx-col {
-        ${applyBasis(md, padded)};
+        flex-basis: ${100 / lg}%;
       }
     `}
-
-    ${lg && media(breakpoints).lg`
+    
+    ${xl && media(breakpoints || theme.breakpoints).xl`
       > .brckwrx-col {
-        ${applyBasis(lg, padded)};
-      }
-    `}
-
-    ${xl && media(breakpoints).xl`
-      > .brckwrx-col {
-        ${applyBasis(xl, padded)};
+        flex-basis: ${100 / xl}%;
       }
     `}
   `};
 `;
-
-const applyBasis = (cols, padding) => {
-  const basis = 100 / cols;
-
-  if (!padding) {
-    return css`
-      flex-basis: ${basis}%;
-    `;
-  }
-
-  const gutterCount = cols - 1;
-  const gutterSize =
-    typeof padding !== 'boolean' ? `${padding}/${cols}` : `${1 / cols}em`;
-
-  return css`
-    flex-basis: calc(${basis}% - (${gutterCount} * ${gutterSize}));
-  `;
-};
 
 // prettier-ignore
 const Grid = styled.div.attrs({ className: `brckwrx-grid` })`
@@ -102,7 +77,8 @@ Grid.propTypes = {
 };
 
 Grid.defaultProps = {
-  breakpoints: { ...breakpoints },
+  // breakpoints: { ...breakpoints },
+  padded: false,
 };
 
 Grid.nav = Grid.withComponent('nav');

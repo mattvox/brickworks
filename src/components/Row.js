@@ -19,7 +19,7 @@ Row.propTypes = {
 };
 
 Row.defaultProps = {
-  breakpoints: { ...breakpoints },
+  // breakpoints: { ...breakpoints },
 };
 
 Row.nav = Row.withComponent('nav');
