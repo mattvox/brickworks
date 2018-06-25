@@ -16,17 +16,24 @@ exports[`<Row /> should match snapshot 1`] = `
   -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) {
+  padding-top: calc(1em / 2);
+  padding-bottom: calc(1em / 2);
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-row {
+  padding-left: calc(1em / 2);
+  padding-right: calc(1em / 2);
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-col {
+  padding: calc(1em / 2);
 }
 
 <div

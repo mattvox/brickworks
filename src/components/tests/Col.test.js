@@ -17,8 +17,8 @@ describe('<Col />', () => {
   });
 
   describe('with default props/settings', () => {
-    it('should have default style - flex: 0 1 auto', () => {
-      expect(wrapper.find('div')).toHaveStyleRule('flex', '0 1 auto');
+    it('should have default style - flex: 1 1 auto', () => {
+      expect(wrapper.find('div')).toHaveStyleRule('flex', '1 1 auto');
     });
 
     it('should match snapshot', () => {
@@ -28,7 +28,7 @@ describe('<Col />', () => {
 
   describe('with added props - 1st set', () => {
     const wrapperWithProps = shallow(
-      <Col flex={[2, 3, '75%']} order={2} alignSelf="center" />,
+      <Col flex={[2, 3, '75%']} order={2} alignSelf="center" />
     );
 
     const expectedStyleList = [

@@ -1,26 +1,31 @@
 import styled, { css } from 'styled-components';
 
 import applyFlex from '../utils/applyFlex';
-import { colTypes, baseTypes } from './types';
+import { colTypes, baseTypes, gridTypes } from './types';
 import { gridStyles } from './Grid';
 import { baseStyles } from './Base';
 
 // prettier-ignore
-export const Col = styled.div.attrs({ className: `brckwrx-col` })`
+const Col = styled.div.attrs({ className: `brckwrx-col` })`
   margin: 0;
   ${baseStyles}
-  flex: ${({ flex }) => applyFlex(flex) || '0 1 auto'};
+  flex: ${({ flex }) => applyFlex(flex) || '1 1 auto'};
   ${({ order, alignSelf, grid }) => css`
     ${order && css`order: ${order};`}
     ${alignSelf && css`align-self: ${alignSelf};`}
     ${grid && gridStyles}
     ${grid && css`padding: 0 !important;`}
+    .brckwrx-row {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
   `}
 `;
 
 Col.propTypes = {
   ...baseTypes,
   ...colTypes,
+  ...gridTypes,
 };
 
 Col.nav = Col.withComponent('nav');

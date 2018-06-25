@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-import breakpoints from '../utils/defaultBreakpoints';
 import { gridTypes, baseTypes } from './types';
 import { gridStyles } from './Grid';
 import { baseStyles } from './Base';
 
 // prettier-ignore
-export const Row = styled.div.attrs({ className: `brckwrx-row` })`
+const Row = styled.div.attrs({ className: `brckwrx-row` })`
   ${baseStyles}
   flex: 0 1 100%;
   order: ${({ order }) => order || 0};
@@ -16,10 +15,6 @@ export const Row = styled.div.attrs({ className: `brckwrx-row` })`
 Row.propTypes = {
   ...gridTypes,
   ...baseTypes,
-};
-
-Row.defaultProps = {
-  // breakpoints: { ...breakpoints },
 };
 
 Row.nav = Row.withComponent('nav');

@@ -27,19 +27,8 @@ describe('<Row />', () => {
     expect(wrapper.find('div')).toHaveStyleRule('flex-flow', 'row wrap');
   });
 
-  it('should have default style - justify-content: flex-start', () => {
-    expect(wrapper.find('div')).toHaveStyleRule(
-      'justify-content',
-      'flex-start'
-    );
-  });
-
-  it('should have default style - align-content: stretch', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('align-content', 'stretch');
-  });
-
-  it('should have default style - align-items: stretch', () => {
-    expect(wrapper.find('div')).toHaveStyleRule('align-items', 'stretch');
+  it('should have default style - justify-content: center', () => {
+    expect(wrapper.find('div')).toHaveStyleRule('justify-content', 'center');
   });
 
   it('should have default style - order: 0', () => {

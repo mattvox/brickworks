@@ -2,6 +2,7 @@
 
 exports[`<Col /> with added props - 1st set should match snapshot with props 1`] = `
 .c0 {
+  margin: 0;
   box-sizing: border-box;
   -webkit-flex: 2 3 75%;
   -ms-flex: 2 3 75%;
@@ -14,6 +15,11 @@ exports[`<Col /> with added props - 1st set should match snapshot with props 1`]
   align-self: center;
 }
 
+.c0 .brckwrx-row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 <div
   className="brckwrx-col c0"
   order={2}
@@ -22,10 +28,16 @@ exports[`<Col /> with added props - 1st set should match snapshot with props 1`]
 
 exports[`<Col /> with default props/settings should match snapshot 1`] = `
 .c0 {
+  margin: 0;
   box-sizing: border-box;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.c0 .brckwrx-row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 <div

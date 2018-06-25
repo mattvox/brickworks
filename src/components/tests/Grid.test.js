@@ -23,9 +23,7 @@ describe('<Grid />', () => {
     const expectedStyleList = [
       { style: 'display', value: 'flex' },
       { style: 'flex-flow', value: 'row wrap' },
-      { style: 'justify-content', value: 'flex-start' },
-      { style: 'align-content', value: 'stretch' },
-      { style: 'align-items', value: 'stretch' },
+      { style: 'justify-content', value: 'center' },
     ];
 
     it('should match snapshot', () => {
@@ -46,7 +44,7 @@ describe('<Grid />', () => {
         alignItems="flex-end"
         badProp1="this is a bad prop"
         badProp2="this is another bad prop"
-        padded
+        spacing
       />
     );
 
@@ -68,7 +66,7 @@ describe('<Grid />', () => {
 
   describe('passes styles down to children columns', () => {
     const wrapper = mount(
-      <Grid padded={2}>
+      <Grid spacing={2}>
         <Col>Hello</Col>
       </Grid>
     );
@@ -79,23 +77,18 @@ describe('<Grid />', () => {
       expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 
-    it(`should pass margin top and bottom when padded prop is present`, () => {
+    it(`should pass padding when spacing prop is present`, () => {
       const tree = renderer
         .create(
-          <Grid padded={2}>
+          <Grid spacing={2}>
             <Col />
           </Grid>
         )
         .toJSON();
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('margin-top', 'calc(2em / 2)', {
-        modifier: css`> .brckwrx-col`,
-      });
-
-      // prettier-ignore
-      expect(tree).toHaveStyleRule('margin-bottom', 'calc(2em / 2)', {
-        modifier: css`> .brckwrx-col`,
+      expect(tree).toHaveStyleRule('padding', 'calc(2em / 2)', {
+        modifier: css`:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-col`,
       });
     });
 
@@ -110,21 +103,6 @@ describe('<Grid />', () => {
 
       // prettier-ignore
       expect(tree).toHaveStyleRule('flex-basis', '50%', {
-        modifier: css`> .brckwrx-col`,
-      });
-    });
-
-    it(`should pass flex when the colFlex prop is present`, () => {
-      const tree = renderer
-        .create(
-          <Grid colFlex={2}>
-            <Col />
-          </Grid>
-        )
-        .toJSON();
-
-      // prettier-ignore
-      expect(tree).toHaveStyleRule('flex', '2', {
         modifier: css`> .brckwrx-col`,
       });
     });

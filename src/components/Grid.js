@@ -1,65 +1,70 @@
 import styled, { css } from 'styled-components';
 
 import media from '../utils/mediaTemplate';
-import applyFlex from '../utils/applyFlex';
 import applyCssWithUnit from '../utils/applyCssWithUnit';
-import breakpoints from '../utils/defaultBreakpoints';
 import { gridTypes, baseTypes } from './types';
 import { baseStyles } from './Base';
-
-// remove unneeded defaults that are already default and use default props to set defaults,
-// reducing lines of code.
-
-// fix defaults and themes, themes should apply first, then props, but default props,
-// currently override the themes, which is bad.
 
 // prettier-ignore
 export const gridStyles = css`
   display: flex;
-  flex-flow: ${({ flow }) => flow || 'row wrap'};
+  flex-flow: row wrap;
+  justify-content: center;
 
-  justify-content: ${({ justify }) => justify || 'flex-start'};
-  align-content: ${({ alignContent }) => alignContent || 'stretch'};
-  align-items: ${({ alignItems }) => alignItems || 'stretch'};
-
-  ${({ padded, theme, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
-    ${colFlex && css`> .brckwrx-col { flex: ${applyFlex(colFlex, '%')}} `}
-    ${(padded || theme.padded) && css`
-      :not(.brckwrx-row) :not(.brckwrx-col) {
-        padding-top: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
-        padding-left: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
-      }
-
-      .brckwrx-col {
-        padding-right: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
-        padding-bottom: ${applyCssWithUnit(padded || theme.padded, 'em') || '1em'};
-      }
-    `}
-
+  ${({
+    theme,
+    spacing,
+    columns,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    breakpoints,
+    flow,
+    justify,
+    alignContent,
+    alignItems,
+    noSpacing,
+  }) => css`
+    ${(theme.flow || flow) && css`flex-flow: ${theme.flow || flow};`}
+    ${(theme.justify || justify) && css`justify-content: ${theme.justify || justify};`}
+    ${(theme.alignContent || alignContent) && css`align-content: ${theme.alignContent || alignContent};`}
+    ${(theme.alignItems || alignItems) && css`align-items: ${theme.alignItems || alignItems};`}
+    
     ${(columns || xs) && css`
-        > .brckwrx-col {
-          flex-basis: ${100 / (columns || xs)}%;
-        }
+      > .brckwrx-col {flex-basis: ${100 / (columns || xs)}%;}
     `}
-    ${sm && media(breakpoints || theme.breakpoints).sm`
-      > .brckwrx-col {
-        flex-basis: ${100 / sm}%;
-      }
+
+    ${sm && media(theme.breakpoints || breakpoints).sm`
+      > .brckwrx-col {flex-basis: ${100 / sm}%;}
     `}
-    ${md && media(breakpoints || theme.breakpoints).md`
-      > .brckwrx-col {
-        flex-basis: ${100 / md}%;
-      }
+
+    ${md && media(theme.breakpoints || breakpoints).md`
+      > .brckwrx-col {flex-basis: ${100 / md}%;}
     `}
-    ${lg && media(breakpoints || theme.breakpoints).lg`
-      > .brckwrx-col {
-        flex-basis: ${100 / lg}%;
-      }
+
+    ${lg && media(theme.breakpoints || breakpoints).lg`
+      > .brckwrx-col {flex-basis: ${100 / lg}%;}
     `}
     
-    ${xl && media(breakpoints || theme.breakpoints).xl`
-      > .brckwrx-col {
-        flex-basis: ${100 / xl}%;
+    ${xl && media(theme.breakpoints || breakpoints).xl`
+      > .brckwrx-col {flex-basis: ${100 / xl}%;}
+    `}
+
+    ${(theme.noSpacing || noSpacing) || css`
+      :not(.brckwrx-row) :not(.brckwrx-col) {
+        padding-top: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        padding-bottom: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        
+        .brckwrx-row {
+          padding-left: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+          padding-right: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        }
+
+        .brckwrx-col {
+          padding: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        }
       }
     `}
   `};
@@ -74,11 +79,6 @@ const Grid = styled.div.attrs({ className: `brckwrx-grid` })`
 Grid.propTypes = {
   ...gridTypes,
   ...baseTypes,
-};
-
-Grid.defaultProps = {
-  // breakpoints: { ...breakpoints },
-  padded: false,
 };
 
 Grid.nav = Grid.withComponent('nav');

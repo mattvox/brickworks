@@ -10,63 +10,45 @@ exports[`<Grid /> passes styles down to children columns should match snapshot w
   -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  margin-top: 0;
-  margin-bottom: 0;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .c0:not(.brckwrx-row) :not(.brckwrx-col) {
   padding-top: calc(2em / 2);
   padding-bottom: calc(2em / 2);
-  padding-left: 2em;
-  padding-right: 2em;
 }
 
-.c0 > .brckwrx-col,
-.c0 > .brckwrx-row {
-  margin-top: calc(2em / 2);
-  margin-bottom: calc(2em / 2);
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-row {
+  padding-left: calc(2em / 2);
+  padding-right: calc(2em / 2);
 }
 
-.brckwrx-grid .c0 {
-  margin-top: 0;
-  margin-bottom: 0;
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-col {
+  padding: calc(2em / 2);
 }
 
 .c1 {
+  margin: 0;
   box-sizing: border-box;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.c1 .brckwrx-row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 <styled.div
-  breakpoints={
-    Object {
-      "lg": "992px",
-      "md": "768px",
-      "sm": "576px",
-      "xl": "1200px",
-    }
-  }
-  padded={2}
+  spacing={2}
 >
   <div
     className="brckwrx-grid c0"
+    spacing={2}
   >
     <Col>
       <div
@@ -86,6 +68,13 @@ exports[`<Grid /> with added props should match snapshot with props 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-flex-flow: column nowrap;
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
@@ -100,34 +89,25 @@ exports[`<Grid /> with added props should match snapshot with props 1`] = `
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
   align-items: flex-end;
-  margin-top: 0;
-  margin-bottom: 0;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .c0:not(.brckwrx-row) :not(.brckwrx-col) {
   padding-top: calc(1em / 2);
   padding-bottom: calc(1em / 2);
-  padding-left: 1em;
-  padding-right: 1em;
 }
 
-.c0 > .brckwrx-col,
-.c0 > .brckwrx-row {
-  margin-top: calc(1em / 2);
-  margin-bottom: calc(1em / 2);
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-row {
+  padding-left: calc(1em / 2);
+  padding-right: calc(1em / 2);
 }
 
-.brckwrx-grid .c0 {
-  margin-top: 0;
-  margin-bottom: 0;
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-col {
+  padding: calc(1em / 2);
 }
 
 <div
   className="brckwrx-grid c0"
+  spacing={true}
 />
 `;
 
@@ -141,17 +121,24 @@ exports[`<Grid /> with default props/settings should match snapshot 1`] = `
   -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) {
+  padding-top: calc(1em / 2);
+  padding-bottom: calc(1em / 2);
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-row {
+  padding-left: calc(1em / 2);
+  padding-right: calc(1em / 2);
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-col {
+  padding: calc(1em / 2);
 }
 
 <div
