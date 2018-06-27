@@ -1,6 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Row /> should match snapshot 1`] = `
+exports[`<Row /> with added props should match snapshot 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-flex: 0 1 100%;
+  -ms-flex: 0 1 100%;
+  flex: 0 1 100%;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) {
+  padding-top: calc(1em / 2);
+  padding-bottom: calc(1em / 2);
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-row {
+  padding-left: calc(1em / 2);
+  padding-right: calc(1em / 2);
+}
+
+.c0:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-col {
+  padding: calc(1em / 2);
+}
+
+<div
+  className="brckwrx-row c0"
+  order={2}
+/>
+`;
+
+exports[`<Row /> with default props/settings should match snapshot 1`] = `
 .c0 {
   box-sizing: border-box;
   -webkit-flex: 0 1 100%;

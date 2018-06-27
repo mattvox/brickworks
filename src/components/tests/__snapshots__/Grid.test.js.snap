@@ -107,7 +107,6 @@ exports[`<Grid /> with added props should match snapshot with props 1`] = `
 
 <div
   className="brckwrx-grid c0"
-  spacing={true}
 />
 `;
 

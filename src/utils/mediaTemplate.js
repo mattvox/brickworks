@@ -10,3 +10,16 @@ export default (breakpoints = defaultBreakpoints) =>
     `;
     return obj;
   }, {});
+
+// export default (breakpoints = defaultBreakpoints) => {
+//   const setBreakpoints = Object.keys(breakpoints).reduce((obj, size) => {
+//     obj[size] = (...args) => css`
+//       @media screen and (min-width: ${breakpoints[size]}) {
+//         ${css(...args)};
+//       }
+//     `;
+//     return obj;
+//   }, {});
+
+//   return setBreakpoints;
+// };

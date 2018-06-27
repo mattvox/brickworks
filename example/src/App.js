@@ -115,7 +115,7 @@ export default class App extends Component {
               </Col>
             </Row>
           </Main>
-          <Grid style={{ backgroundColor: 'pink' }}>
+          <Grid style={{ backgroundColor: 'lightcyan' }} spacing={0.5}>
             <Row>
               <Col flex={5}>
                 <Segment>1</Segment>

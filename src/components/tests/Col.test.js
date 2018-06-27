@@ -26,7 +26,7 @@ describe('<Col />', () => {
     });
   });
 
-  describe('with added props - 1st set', () => {
+  describe('with added props', () => {
     const wrapperWithProps = shallow(
       <Col flex={[2, 3, '75%']} order={2} alignSelf="center" />
     );
@@ -43,6 +43,24 @@ describe('<Col />', () => {
 
     expectedStyleList.forEach(({ style, value }) => {
       return testStyle(wrapperWithProps, style, value);
+    });
+  });
+
+  describe('with the grid prop', () => {
+    const wrapper = shallow(<Col grid />);
+
+    const expectedStyleList = [
+      { style: 'display', value: 'flex' },
+      { style: 'flex-flow', value: 'row wrap' },
+      { style: 'justify-content', value: 'center' },
+    ];
+
+    it('should match snapshot', () => {
+      expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+
+    expectedStyleList.forEach(({ style, value }) => {
+      return testStyle(wrapper, style, value);
     });
   });
 });

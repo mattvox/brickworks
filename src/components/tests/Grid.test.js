@@ -8,6 +8,7 @@ import 'jest-styled-components';
 
 import testStyle from './helpers/testStyle';
 import Grid from '../Grid';
+import Row from '../Row';
 import Col from '../Col';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -44,7 +45,6 @@ describe('<Grid />', () => {
         alignItems="flex-end"
         badProp1="this is a bad prop"
         badProp2="this is another bad prop"
-        spacing
       />
     );
 
@@ -61,6 +61,56 @@ describe('<Grid />', () => {
 
     expectedStyleList.forEach(({ style, value }) => {
       return testStyle(wrapperWithProps, style, value);
+    });
+  });
+
+  describe('with spacing', () => {
+    it('should have padding-top, padding-bottom by default', () => {
+      const tree = renderer
+        .create(
+          <Grid spacing>
+            <Col />
+          </Grid>
+        )
+        .toJSON();
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('padding-top', 'calc(1em / 2)', {
+        modifier: css`
+          :not(.brckwrx-row) :not(.brckwrx-col)
+        `,
+      });
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('padding-bottom', 'calc(1em / 2)', {
+        modifier: css`
+          :not(.brckwrx-row) :not(.brckwrx-col)
+        `,
+      });
+    });
+
+    it('should have correct padding-top, padding-bottom when passed with spacing prop', () => {
+      const tree = renderer
+        .create(
+          <Grid spacing={2}>
+            <Col />
+          </Grid>
+        )
+        .toJSON();
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('padding-top', 'calc(2em / 2)', {
+        modifier: css`
+          :not(.brckwrx-row) :not(.brckwrx-col)
+        `,
+      });
+
+      // prettier-ignore
+      expect(tree).toHaveStyleRule('padding-bottom', 'calc(2em / 2)', {
+        modifier: css`
+          :not(.brckwrx-row) :not(.brckwrx-col)
+        `,
+      });
     });
   });
 
@@ -81,7 +131,9 @@ describe('<Grid />', () => {
       const tree = renderer
         .create(
           <Grid spacing={2}>
-            <Col />
+            <Row>
+              <Col />
+            </Row>
           </Grid>
         )
         .toJSON();
@@ -90,59 +142,15 @@ describe('<Grid />', () => {
       expect(tree).toHaveStyleRule('padding', 'calc(2em / 2)', {
         modifier: css`:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-col`,
       });
-    });
-
-    it(`should pass flex when the columns prop is present`, () => {
-      const tree = renderer
-        .create(
-          <Grid columns={2}>
-            <Col />
-          </Grid>
-        )
-        .toJSON();
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex-basis', '50%', {
-        modifier: css`> .brckwrx-col`,
-      });
-    });
-
-    it(`should pass flex and adjust flex-basis based on media queries when passed xs, sm, md, lg, and xl props`, () => {
-      const tree = renderer
-        .create(
-          <Grid xs={4} sm={1} md={2} lg={4} xl={10}>
-            <Col />
-          </Grid>
-        )
-        .toJSON();
-
-      // prettier-ignore
-      expect(tree).toHaveStyleRule('flex-basis', '25%', {
-        modifier: css`> .brckwrx-col`,
+      expect(tree).toHaveStyleRule('padding-left', 'calc(2em / 2)', {
+        modifier: css`:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-row`,
       });
 
       // prettier-ignore
-      expect(tree).toHaveStyleRule('flex-basis', '100%', {
-        media: 'screen and (min-width: 576px)',
-        modifier: css`> .brckwrx-col`,
-      });
-
-      // prettier-ignore
-      expect(tree).toHaveStyleRule('flex-basis', '50%', {
-        media: 'screen and (min-width: 768px)',
-        modifier: css`> .brckwrx-col`,
-      });
-
-      // prettier-ignore
-      expect(tree).toHaveStyleRule('flex-basis', '25%', {
-        media: 'screen and (min-width: 992px)',
-        modifier: css`> .brckwrx-col`,
-      });
-
-      // prettier-ignore
-      expect(tree).toHaveStyleRule('flex-basis', '10%', {
-        media: 'screen and (min-width: 1200px)',
-        modifier: css`> .brckwrx-col`,
+      expect(tree).toHaveStyleRule('padding-right', 'calc(2em / 2)', {
+        modifier: css`:not(.brckwrx-row) :not(.brckwrx-col) .brckwrx-row`,
       });
     });
   });
