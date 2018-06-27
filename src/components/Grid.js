@@ -1,94 +1,46 @@
 import styled, { css } from 'styled-components';
 
-import media from '../utils/mediaTemplate';
-import applyFlex from '../utils/applyFlex';
 import applyCssWithUnit from '../utils/applyCssWithUnit';
-import breakpoints from '../utils/defaultBreakpoints';
 import { gridTypes, baseTypes } from './types';
 import { baseStyles } from './Base';
 
 // prettier-ignore
 export const gridStyles = css`
   display: flex;
-  flex-flow: ${({ flow }) => flow || 'row wrap'};
-  justify-content: ${({ justify }) => justify || 'flex-start'};
-  align-content: ${({ alignContent }) => alignContent || 'stretch'};
-  align-items: ${({ alignItems }) => alignItems || 'stretch'};
+  flex-flow: row wrap;
+  justify-content: center;
 
-  ${({ padded, justify, columns, xs, sm, md, lg, xl, breakpoints, colFlex }) => css`
-    ${colFlex && css`> .brckwrx-col { flex: ${applyFlex(colFlex, '%')}} `}
-    ${padded && css`
-      margin-top: 0;
-      margin-bottom: 0;
-      justify-content: ${justify || 'space-between'};
+  ${({
+    theme,
+    spacing,
+    flow,
+    justify,
+    alignContent,
+    alignItems,
+    noSpacing,
+  }) => css`
+    ${(theme.flow || flow) && css`flex-flow: ${theme.flow || flow};`}
+    ${(theme.justify || justify) && css`justify-content: ${theme.justify || justify};`}
+    ${(theme.alignContent || alignContent) && css`align-content: ${theme.alignContent || alignContent};`}
+    ${(theme.alignItems || alignItems) && css`align-items: ${theme.alignItems || alignItems};`}
 
+    ${(theme.noSpacing || noSpacing) || css`
       :not(.brckwrx-row) :not(.brckwrx-col) {
-        padding-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        padding-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        padding-left: ${applyCssWithUnit(padded, 'em') || '1em'};
-        padding-right: ${applyCssWithUnit(padded, 'em') || '1em'};
-      }
+        padding-top: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        padding-bottom: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        
+        .brckwrx-row {
+          padding-left: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+          padding-right: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        }
 
-      > .brckwrx-col, > .brckwrx-row {
-        margin-top: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-        margin-bottom: calc(${applyCssWithUnit(padded, 'em') || '1em'} / 2);
-      }
-
-      .brckwrx-grid & {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-    `}
-
-    ${(columns || xs) && css`
-      > .brckwrx-col {
-        ${applyBasis(columns || xs, padded)};
-      }
-    `}
-
-    ${sm && media(breakpoints).sm`
-      > .brckwrx-col {
-        ${applyBasis(sm, padded)};
-      }
-    `}
-
-    ${md && media(breakpoints).md`
-      > .brckwrx-col {
-        ${applyBasis(md, padded)};
-      }
-    `}
-
-    ${lg && media(breakpoints).lg`
-      > .brckwrx-col {
-        ${applyBasis(lg, padded)};
-      }
-    `}
-
-    ${xl && media(breakpoints).xl`
-      > .brckwrx-col {
-        ${applyBasis(xl, padded)};
+        .brckwrx-col {
+          padding: calc(${applyCssWithUnit(spacing || theme.spacing, 'em') || '1em'} / 2);
+        }
       }
     `}
   `};
 `;
-
-const applyBasis = (cols, padding) => {
-  const basis = 100 / cols;
-
-  if (!padding) {
-    return css`
-      flex-basis: ${basis}%;
-    `;
-  }
-
-  const gutterCount = cols - 1;
-  const gutterSize =
-    typeof padding !== 'boolean' ? `${padding}/${cols}` : `${1 / cols}em`;
-
-  return css`
-    flex-basis: calc(${basis}% - (${gutterCount} * ${gutterSize}));
-  `;
-};
 
 // prettier-ignore
 const Grid = styled.div.attrs({ className: `brckwrx-grid` })`
@@ -99,10 +51,6 @@ const Grid = styled.div.attrs({ className: `brckwrx-grid` })`
 Grid.propTypes = {
   ...gridTypes,
   ...baseTypes,
-};
-
-Grid.defaultProps = {
-  breakpoints: { ...breakpoints },
 };
 
 Grid.nav = Grid.withComponent('nav');
