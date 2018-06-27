@@ -3,6 +3,7 @@
     "fwrap",
     "jsnext",
     "nowrap",
-    "predeploy"
+    "predeploy",
+    "themable"
   ]
 }
