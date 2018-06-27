@@ -23,7 +23,7 @@ What sets Brickworks apart from the others is its commitment to ONLY be concerne
 
 #### - Lightweight (~2kb gzipped)
 
-#### - Fully-typed props with > 95% test coverage
+#### - Fully-typed props with 100% test coverage
 
 #### - Responsive and mobile-first
 
